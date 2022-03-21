@@ -6,7 +6,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class FooterController extends AbstractController
+class AdminFooterController extends AbstractController
 {
     #[Route('/admin/footer', name: 'admin_footer')]
     public function index(): Response
