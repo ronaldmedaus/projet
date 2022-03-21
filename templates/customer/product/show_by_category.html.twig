@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Site chaussures
+{% endblock %}
+
+{% block body %}
+
+
+	<!-- Start Categories of The Month -->
+	<section class="container py-5">
+		<div class="row text-center pt-3">
+			<div class="col-12 d-flex align-items-center justify-content-between m-auto">
+				<h1 class="h1">{{category.name}}</h1>
+			</div>
+			{% for product in category.products %}
+				<div class="col-sm-12 col-md-6 col-lg-3 mt-3 ">
+
+					<div class="card">
+						<img src="{{ product.imagePath }}" alt="image_category" class="card-img-top imageCard">
+						<div class="card-body">
+							<h5 class="card-title">{{ product.name }}</h5>
+							<p>{{ product.price | priceEuro }}
+								<a href="{{ path('boutique_product_detail',{'id': product.id} ) }}" class="btn btn-secondary w-100">Consulter</a>
+							</p>
+						</div>
+					</div>
+				</div>
+
+			{% endfor %}
+		</div>
+		<a href="{{ path('home')}}" class="btn btn-danger">
+			<span class="btn-label">
+				<i class="fa fa-chevron-left"></i>
+			</span>Retour</a>
+
+		<!-- End Categories of The Month -->
+	</section>
+
+
+{% endblock %}

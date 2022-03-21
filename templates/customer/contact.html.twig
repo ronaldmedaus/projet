@@ -1,0 +1,50 @@
+{% extends 'base.html.twig'%}
+
+
+{% block body %}
+	<div class="container py-5">
+		<div class="row">
+			<div class="col-12">
+				<a href="#">Accueil /</a>
+			</div>
+
+			<div class="row">
+				<div class="col-12">
+					<a>contactez-nous</a>
+				</div>
+
+				<div class="col-12 contact">
+
+					<div class="card">
+						<div class="contactTitle">
+							<h1>CONTACTEZ-NOUS</h1>
+						</div>
+					</div>
+					<div class="card-body">
+
+						<div class="col-6 contact_sidebar_image">
+							<img src="https://thumbs.dreamstime.com/z/i-m-listening-picture-young-woman-attention-over-white-background-30656613.jpg" alt="image contactez-nous">
+						</div>
+						<div class="col-6 contact_sidebar_form">
+							<div class="col-6 contactFormLeft">
+							{{ form_start(contactForm)}}
+							{{ form_start(contactForm.firsName)}}
+							
+							</div>
+							<div class="col-6 contactFormRight">
+							
+							</div>
+
+
+						</div>
+					</div>
+
+
+				</div>
+
+
+			</div>
+		</div>
+
+
+	{% endblock %}

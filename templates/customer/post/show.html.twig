@@ -1,0 +1,101 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Post index{% endblock %}
+
+{% block body %}
+<div class="container py-5">
+
+    <div class="row">
+
+        {% include "_messages_flash.html.twig" %}
+    
+        <div class="col-12">
+            <a class="btn btn-secondary" href="{{ path('blog_post_list') }}">Retour à la liste </a>
+        </div>
+
+        
+
+            <div class="col-sm-12 col-md-6 col-lg-6">
+
+                <div class="card">
+                    <img src="{{ post.imagePath }}" class="card-img-top imageCard" alt="image_category">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ post.title }}</h5>
+                        {{ post.content | raw}}
+                    
+                    </div>
+                </div>
+        
+            </div>
+
+            <div class="col-sm-12 col-md-6 col-lg-6">
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Information</h5>
+                        <p>Créé le {{ post.createdAt | date('d-M-Y') }}</p>
+                    </div>
+                
+                </div>
+        
+            </div>
+    </div>
+
+    <section>
+        <div class="row">
+            <div class="col-sm-12 mt-3">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">Ajouter un commentaire</h5>
+                    </div>
+                    {% if app.user %}
+                        <div class="card-body">
+                            {{ form_start(form) }}
+                            {{ form_widget(form) }}
+                            <button class="btn btn-primary mt-3" type="submit">Go !</button>
+                            {{ form_end(form) }}
+                        </div>
+                    {% else %}
+                        <div class="card-body">
+                            <p>Vous devez être connecté pour laisser un commentaire.</p>
+                            <a href="{{ path('app_login') }}" class="btn btn-secondary">Connectez vous</a>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section>
+        <div class="row">
+            <div class="col-sm-12 mt-3">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">Les commentaires</h5>
+                    </div>
+                    <div class="card-body">
+                    {% if comments | length > 0  %}
+                        {% for comment in comments %}
+                            <div class="card mt-3 bg-dark text-white">
+                                <div class="card-header">
+                                    <p>Commentaire de {{ comment.user.email }}</p>
+                                    <p>Publié le : {{ comment.createdAt | date('d-M-Y') }}</p>
+                                </div>
+                                <div class="card-body">
+                                    <p>{{ comment.content }}</p>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <p>Il n'y a encore aucun commentaire.</p>
+                    {% endif %} 
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+</div>
+{% endblock %}

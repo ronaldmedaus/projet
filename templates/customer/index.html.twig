@@ -1,0 +1,211 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Site chaussures
+{% endblock %}
+
+{% block body %}
+
+	<!-- Start SLIDER -->
+	<div id="template-mo-zay-hero-carousel" class="carousel slide" data-bs-ride="carousel">
+		<ol class="carousel-indicators">
+			<li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="0" class="active"></li>
+			<li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="1"></li>
+			<li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="2"></li>
+		</ol>
+		<div class="carousel-inner">
+
+
+			<div class="carousel-item active">
+
+				<div class="container">
+
+					<div class="row p-5 style=height: 150px;">
+
+
+						<div class="mx-auto col-md-8 col-lg-6 order-lg-last h-75">
+
+							<img class="img-fluid" src="./assets/img/banner_img_01.jpg" alt="">
+						</div>
+						<div class="col-lg-6 mb-0 d-flex align-items-center">
+							<div class="text-align-left align-self-center">
+								<h1 class="h1 text-success">Airness</h1>
+
+								<h3 class="h2">Baskets blanc airness</h3>
+
+								<p>
+									On adore cette
+									<strong>basket basse blanche Airness</strong>
+									à la ligne sobre et épurée																																																																																																																																																																																	                                    If you wish to support TemplateMo, please make a small contribution via PayPal or tell your friends about our website. Thank you.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="carousel-item">
+				<div class="container">
+					<div class="row p-5">
+						<div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+							<img class="img-fluid" src="./assets/img/banner_img_04.jpg" alt="">
+						</div>
+						<div class="col-lg-6 mb-0 d-flex align-items-center">
+							<div class="text-align-left">
+								<h1 class="h1">Trekk Femme</h1>
+								<h3 class="h2">MONTAGNE ELLERY FEMME</h3>
+
+								<p>
+									Modèle avec tige legère et doublure en veloutine pour faciles excursions d'une journée ; la semelle
+									<strong>Natural Shape</strong>
+									s'adapte à la forme du pied et garantit la stabilité et la protection nécessaires.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="carousel-item">
+				<div class="container">
+					<div class="row p-5">
+						<div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+							<img class="img-fluid" src="./assets/img/banner_img_05.jpg" alt="">
+						</div>
+						<div class="col-lg-6 mb-0 d-flex align-items-center">
+							<div class="text-align-left">
+								<h1 class="h1">Airness</h1>
+								<h3 class="h2">baskets blanc airness</h3>
+								<p>
+									On adore cette
+									<strong>basket basse blanche Airness</strong>
+									à la ligne sobre et épurée																																																																																																																																																																																	                                    If you wish to support TemplateMo, please make a small contribution via PayPal or tell your friends about our website. Thank you.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<a class="carousel-control-prev text-decoration-none w-auto ps-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="prev">
+			<i class="fas fa-chevron-left"></i>
+		</a>
+		<a class="carousel-control-next text-decoration-none w-auto pe-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="next">
+			<i class="fas fa-chevron-right"></i>
+		</a>
+	</div>
+	<!-- End SLIDER -->
+
+	<!-- Start Categories of The Month -->
+	<div class="container-fluid py-5">
+		<div class="row text-center pt-3">
+			<div class="col-12">
+				<h1 class="h1 text-center">Nouveauté du mois</h1>
+			</div>
+			<div class="row">
+				{% for product in products %}
+					<div class="col-sm-12 col-md-6 col-lg-3 mt-3">
+						<div class="profile-card-2"><img src="{{ product.imagePath }}" alt="image_category" class="img img-responsive">
+							<div class="profile-username">{{ product.price | priceEuro }}</div>
+							<div class="profile-name">{{ product.name }}</div>
+							<div class="profile-icons">
+								<a href="{{ path('boutique_product_detail',{'id': product.id} ) }}" class="btn btn-secondary w-100">Consulter</a>
+							</div>
+						</div>
+					</div>
+
+				{% endfor %}
+
+
+			</div>
+
+
+			<div class="container-fluid py-5">
+				<div class="row text-center pt-3">
+					<div class="col-12">
+						<h1 class="h1 text-center">Les catégories</h1>
+					</div>
+					<div class="row">
+						{% for category in categories %}
+							<div class="col-sm-12 col-md-6 col-lg-3 mt-3 style="width: 18rem; height: 18rem;"">
+								<div class="profile-card-2"><img src="{{ category.imagePath }}" alt="image_category" class="img img-responsive">
+									<div class="profile-username">{{ category.name }}</div>
+									<div class="profile-name"></div>
+									<div class="profile-icons">
+										<a href="{{ path('boutique_product_show_by_category', {'id': category.id}) }}" class="btn btn-secondary w-100">Consulter</a>
+									</div>
+								</div>
+							</div>
+
+						{% endfor %}
+
+
+					</div>
+					<!-- End Categories of The Month -->
+
+
+				</div>
+			</div>
+		</div>
+
+	</section>
+
+
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<h2 class="heading-section mb-5 pb-md-4">Meilleurs Ventes</h2>
+				</div>
+				<div class="col-md-12">
+					<div class="slider-hero">
+						<div class="featured-carousel owl-carousel">
+							<div class="item">
+								<div class="work">
+									<div class="img d-flex align-items-center justify-content-center slider-1" style="">
+										<div class="text text-center">
+											<h2></h2>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="item">
+								<div class="work">
+									<div class="img d-flex align-items-center justify-content-center slider-2" style="">
+										<div class="text text-center">
+											<h2></h2>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="item">
+								<div class="work">
+									<div class="img d-flex align-items-center justify-content-center slider-3" style="">
+										<div class="text text-center">
+											<h2></h2>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="my-5 text-center">
+							<ul class="thumbnail">
+								<li class="active img">
+									<a href="#"><img src="https://www.cdiscount.com/pdt2/7/9/4/1/1200x1200/mp11547794/rw/chaussures-enfants-chaussures-course-enfants-air-c.jpg" alt="Image" class="img-fluid"></a>
+								</li>
+								<li>
+									<a href="#"><img src="https://www.cdiscount.com/pdt2/2/8/6/1/1200x1200/mp50725286/rw/sandales-femme-vintage-chaussures-compensees-femme.jpg" alt="Image" class="img-fluid"></a>
+								</li>
+								<li>
+									<a href="#"><img src="https://www.cdiscount.com/pdt2/3/5/1/1/1200x1200/mp49557351/rw/femmes-sandales-plateforme-noir.jpg" alt="Image" class="img-fluid"></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+	</section>
+
+
+{% endblock %}
