@@ -13,6 +13,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Rollerworks\Component\PasswordStrength\Validator\Constraints\PasswordStrength;
 
 class RegistrationFormType extends AbstractType
 {
@@ -52,11 +53,18 @@ class RegistrationFormType extends AbstractType
                     new NotBlank([
                         'message' => 'Renseignez un mot de passe svp!',
                     ]),
-                    new Length([
-                        'min' => 6,
-                        'minMessage' => 'Votre mot de passe doit faire au moins {{ limit }} characters',
+
+                    //new Length([
+                    //    'min' => 6,
+                      //  'minMessage' => 'Votre mot de passe doit faire au moins {{ limit }} characters',
                         // max length allowed by Symfony for security reasons
-                        'max' => 4096,
+                        //'max' => 4096,
+                    //]),
+                    new PasswordStrength ([ 
+                        'minLength'  => 8,
+                        'tooShortMessage' => 'le mot de passe doit contenir au moins 8 caractères',
+                        'minStrength' => 4,
+                        'message' => 'le mot de passe doit contenir au moins une lettre majuscule, une lettrre minuscule, un chiffre et un caractère spécial.',
                     ]),
                 ],
             ])

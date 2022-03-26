@@ -94,118 +94,67 @@
 	<!-- End SLIDER -->
 
 	<!-- Start Categories of The Month -->
-	<div class="container-fluid py-5">
+	<section class="container py-5">
 		<div class="row text-center pt-3">
-			<div class="col-12">
-				<h1 class="h1 text-center">Nouveauté du mois</h1>
-			</div>
-			<div class="row">
-				{% for product in products %}
-					<div class="col-sm-12 col-md-6 col-lg-3 mt-3">
-						<div class="profile-card-2"><img src="{{ product.imagePath }}" alt="image_category" class="img img-responsive">
-							<div class="profile-username">{{ product.price | priceEuro }}</div>
-							<div class="profile-name">{{ product.name }}</div>
-							<div class="profile-icons">
-								<a href="{{ path('boutique_product_detail',{'id': product.id} ) }}" class="btn btn-secondary w-100">Consulter</a>
+			{% include "_messages_flash.html.twig" %}
+
+
+			<div class="card col-12 m-auto pb-2">
+				<h1 class="h1">Nouveauté du mois</h1>
+				<div ="products" class="row">
+
+					{% for product in products %}
+						<div class="col-sm-12 col-md-6 col-lg-3 mt-3">
+							<div
+								class="card">
+								<!-- div.img a modifié pour pouvoir gerer la hauteur des images, mais la balise doit contenir uniquement l'image-->
+								<div class="img">
+									<img src="{{ product.imagePath }}" alt="image_category" class="card-img-top">
+								</div>
+								<div class="card-body">
+									<h5 class="card-title ">{{ product.name }}</h5>
+									<p>{{ product.price | priceEuro }}
+										<div>
+											<a href="{{ path('boutique_product_detail',{'id': product.id} ) }}" class="btn btn-secondary btn-sm mx-3">Consulter</a>
+											<a class="btn btn-success btn-sm mx-3" href="{{ path('cart_add',{ 'id' : product.id }) }}?routeToRedirect=panier">
+												<i class="fa-solid fa-cart-plus"></i>
+											</a>
+										</div>
+									</p>
+								</p>
 							</div>
 						</div>
 					</div>
-
 				{% endfor %}
 
-
-			</div>
-
-
-			<div class="container-fluid py-5">
-				<div class="row text-center pt-3">
-					<div class="col-12">
-						<h1 class="h1 text-center">Les catégories</h1>
-					</div>
-					<div class="row">
-						{% for category in categories %}
-							<div class="col-sm-12 col-md-6 col-lg-3 mt-3 style="width: 18rem; height: 18rem;"">
-								<div class="profile-card-2"><img src="{{ category.imagePath }}" alt="image_category" class="img img-responsive">
-									<div class="profile-username">{{ category.name }}</div>
-									<div class="profile-name"></div>
-									<div class="profile-icons">
-										<a href="{{ path('boutique_product_show_by_category', {'id': category.id}) }}" class="btn btn-secondary w-100">Consulter</a>
-									</div>
-								</div>
-							</div>
-
-						{% endfor %}
-
-
-					</div>
-					<!-- End Categories of The Month -->
-
-
-				</div>
 			</div>
 		</div>
+	</div>
+</section>
+<!-- End Categories of The Month -->
 
-	</section>
 
+<div class="container py-5">
 
-	<section class="ftco-section">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12 text-center">
-					<h2 class="heading-section mb-5 pb-md-4">Meilleurs Ventes</h2>
-				</div>
-				<div class="col-md-12">
-					<div class="slider-hero">
-						<div class="featured-carousel owl-carousel">
-							<div class="item">
-								<div class="work">
-									<div class="img d-flex align-items-center justify-content-center slider-1" style="">
-										<div class="text text-center">
-											<h2></h2>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="item">
-								<div class="work">
-									<div class="img d-flex align-items-center justify-content-center slider-2" style="">
-										<div class="text text-center">
-											<h2></h2>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="item">
-								<div class="work">
-									<div class="img d-flex align-items-center justify-content-center slider-3" style="">
-										<div class="text text-center">
-											<h2></h2>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
+	<h3 class="text-center">Les catégories</h3>
+	<div class="row row-cols-1 row-cols-md-2 row-cols-lg-4">
 
-						<div class="my-5 text-center">
-							<ul class="thumbnail">
-								<li class="active img">
-									<a href="#"><img src="https://www.cdiscount.com/pdt2/7/9/4/1/1200x1200/mp11547794/rw/chaussures-enfants-chaussures-course-enfants-air-c.jpg" alt="Image" class="img-fluid"></a>
-								</li>
-								<li>
-									<a href="#"><img src="https://www.cdiscount.com/pdt2/2/8/6/1/1200x1200/mp50725286/rw/sandales-femme-vintage-chaussures-compensees-femme.jpg" alt="Image" class="img-fluid"></a>
-								</li>
-								<li>
-									<a href="#"><img src="https://www.cdiscount.com/pdt2/3/5/1/1/1200x1200/mp49557351/rw/femmes-sandales-plateforme-noir.jpg" alt="Image" class="img-fluid"></a>
-								</li>
-							</ul>
-						</div>
+		{% for category in categories %}
+			<div class="col-sm-12 col-md-6 col-lg-3 mt-3 ">
+
+				<div class="card">
+					<div class="img">
+						<img src="{{ category.imagePath }}" alt="image_category" class="card-img-top imageCard">
+					</div>
+
+					<div class="card-body">
+						<h5 class="card-title">{{ category.name }}</h5>
+						<a href="{{ path('boutique_product_show_by_category', {'id': category.id}) }}" class="btn btn-secondary w-100">Consulter</a>
 					</div>
 				</div>
 			</div>
-		</div>
+			<!--<a href="{{ path('admin/category_show', {'id': category.id}) }}">show</a>-->
+		{% endfor %}
 
-
-	</section>
-
-
-{% endblock %}
+	</div>
+</div>{% endblock %}
