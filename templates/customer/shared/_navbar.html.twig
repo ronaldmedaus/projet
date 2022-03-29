@@ -1,71 +1,69 @@
 <!-- Header -->
 
-	<!-- Navbar  -->
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<div class="container-fluid">
-			<a class="navbar-brand" href="{{path("home")}}">FFR</a>
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-					{% if app.user %}
+<!-- Navbar  -->
+	<nav class="navbar navbar-expand-lg navbar-light bg-light"> <div class="container-fluid">
+		<a class="navbar-brand" href="{{path("home")}}">FFR</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				{% if app.user %}
 
-						{% if app.user.roles[0] is same as "ROLE_ADMIN" %}
-
-							<li class="nav-item">
-								<a class="nav-link active" aria-current="page" href="{{ path("admin_home")}}">Administration</a>
-							</li>
-						{% endif %}
+					{% if app.user.roles[0] is same as "ROLE_ADMIN" %}
 
 						<li class="nav-item">
-							<a class="nav-link" href="{{ path("app_logout")}}">Se deconnecter</a>
+							<a class="nav-link active" aria-current="page" href="{{ path("admin_home")}}">Administration</a>
 						</li>
-
-					{% else %}
-						<li class="nav-item">
-							<a class="nav-link" href=""></a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href=""></a>
-						</li>
-
-						<a href="{{ path("app_login")}}" class="btn btn-primary btn-lg" tabindex="-1" role="button">Se connecter</a>
-						<a href="{{ path("app_register")}}" class="btn btn-secondary btn-lg" tabindex="-1" role="button">S'inscrire</a>
 					{% endif %}
 
 					<li class="nav-item">
-						<a class="nav-link" href="{{ path('home')}}">Accueil</a>
+						<a class="nav-link" href="{{ path("app_logout")}}">Se deconnecter</a>
+					</li>
+
+				{% else %}
+					<li class="nav-item">
+						<a href="{{ path("app_login")}}" class="btn btn-primary md btn-xs segment-button" tabindex="-1" role="button">Se connecter</a>
+					</li>
+					<li class="nav-item">
+						<a href="{{ path("app_register")}}" class="btn btn-secondary btn-xs segment-button" tabindex="-1" role="button">S'inscrire</a>
 					</li>
 
 
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-							Catégories
-						</a>
+				{% endif %}
 
-						<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-							{% for category in categoryRepository.findAll() %}
-								<li>
-									<a class="dropdown-item" href="{{ path('boutique_product_show_by_category',{'id':category.id}) }}">{{category.name}}</a>
-								</li>
-							{% endfor %}
-						</ul>
-					</li>
-				</ul>
-			</div>
-			<a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal" data-bs-target="#templatemo_search">
-				<a class="nav-link" aria-current="page" href="{{ path('blog_post_list') }}">Blog</a>
-			</a>
-			<a class="nav-icon position-relative text-decoration-none" href="{{ path('cart_detail')}}">
-				<i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
-				<!-- <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">7</span> -->
+				<li class="nav-item">
+					<a class="nav-link" href="{{ path('home')}}">Accueil</a>
+				</li>
 
-			</a>
-			<a class="nav-icon position-relative text-decoration-none" href="{{ path('profile_detail')}}">
-				<i class="fa fa-fw fa-user text-dark mr-3"></i>
-				<!-- <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">+99</span> -->
-			</a>
+
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						Catégories
+					</a>
+
+					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+						{% for category in categoryRepository.findAll() %}
+							<li>
+								<a class="dropdown-item" href="{{ path('boutique_product_show_by_category',{'id':category.id}) }}">{{category.name}}</a>
+							</li>
+						{% endfor %}
+					</ul>
+				</li>
+			</ul>
 		</div>
-	</nav>
-	<!-- fin Navbar -->
+		<a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal" data-bs-target="#templatemo_search">
+			<a class="nav-link" aria-current="page" href="{{ path('blog_post_list') }}">Blog</a>
+		</a>
+		<a class="nav-icon position-relative text-decoration-none" href="{{ path('cart_detail')}}">
+			<i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
+			<!-- <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">7</span> -->
+
+		</a>
+		<a class="nav-icon position-relative text-decoration-none" href="{{ path('profile_detail')}}">
+			<i class="fa fa-fw fa-user text-dark mr-3"></i>
+			<!-- <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">+99</span> -->
+		</a>
+	</div>
+</nav>
+<!-- fin Navbar -->

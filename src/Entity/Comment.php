@@ -91,12 +91,12 @@ class Comment
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeInterface
+    public function getcreated_at(): ?\DateTimeInterface
     {
         return $this->created_at;
     }
 
-    public function setCreatedAt(\DateTimeInterface $created_at): self
+    public function setcreated_at(\DateTimeInterface $created_at): self
     {
         $this->created_at = $created_at;
 

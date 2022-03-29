@@ -730,3 +730,42 @@ body {
 .btn {
 	margin-bottom: 10px;
 }
+
+
+.md .segment-button {
+    border-style: none;
+    border-color: #e62100;
+    color: #e62100;
+    border-width: thin;
+    font-size: 12px;
+  }
+  
+  .segment-button:first-of-type {
+    width: 40px;
+    height: 38px;
+    border-radius: 50%;
+    font-size: 15px;
+    line-height: 40px;
+    max-width: 40px;
+    max-height: 40px;
+  }
+  
+  .segment-button:not(:first-of-type) {
+    width: 40px;
+    height: 38px;
+    border-radius: 50%;
+    font-size: 15px;
+    line-height: 40px;
+    max-width: 40px;
+    max-height: 40px;
+  }
+  
+  .segment-button:last-of-type {
+    width: 40px;
+    height: 38px;
+    border-radius: 50%;
+    font-size: 15px;
+    line-height: 40px;
+    max-width: 40px;
+    max-height: 40px;
+  }

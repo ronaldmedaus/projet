@@ -28,9 +28,9 @@ class Post
     #[ORM\Column(type: 'text')]
     private $content;
 
-    #[ORM\Column(type: 'datetime')]
-    private $createdAt;
-
+    #[ORM\Column(type: 'datetime',nullable:false)]
+    private $created_at;
+    
     #[ORM\Column(type: 'string', length: 255)]
     private $status = PostStatus::STATUS_PUBLISHED;
 
@@ -45,9 +45,9 @@ class Post
     #[ORM\PrePersist]
     public function prePersist()
     {
-        if(empty($this->createdAt))
+        if(empty($this->created_at))
         {
-            $this->createdAt = new DateTime();
+            $this->created_at = new DateTime();
         }
     }
 
@@ -92,14 +92,14 @@ class Post
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeInterface
+    public function getcreated_at(): ?\DateTimeInterface
     {
-        return $this->createdAt;
+        return $this->created_at;
     }
 
-    public function setcreatedAt(\DateTimeInterface $createdAt): self
+    public function setcreated_at(\DateTimeInterface $created_at): self
     {
-        $this->createdAt = $createdAt;
+        $this->created_at = $created_at;
 
         return $this;
     }
