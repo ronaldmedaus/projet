@@ -769,3 +769,19 @@ body {
     max-width: 40px;
     max-height: 40px;
   }
+
+  .imageCard {
+    height: 300px;
+    object-fit: cover;
+}
+
+/* img {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    object-position:bottom right; 
+    box-shadow: 0 0 5px bleu;
+    filter: drop-shadow(0 0 5px bleu);
+
+}*/
+

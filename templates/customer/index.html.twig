@@ -99,9 +99,9 @@
 			{% include "_messages_flash.html.twig" %}
 
 
-			<div class="card col-12 m-auto pb-2">
+			<div class="col-12 m-auto pb-2">
 				<h1 class="h1">Nouveauté du mois</h1>
-				<div ="products" class="row">
+				<div ="products" class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
 
 					{% for product in products %}
 						<div class="col-sm-12 col-md-6 col-lg-3 mt-3">
@@ -109,7 +109,7 @@
 								class="card">
 								<!-- div.img a modifié pour pouvoir gerer la hauteur des images, mais la balise doit contenir uniquement l'image-->
 								<div class="img">
-									<img src="{{ product.imagePath }}" alt="image_category" class="card-img-top">
+									<img src="{{ product.imagePath }}" alt="image_category" class="card-img-top imageCard">
 								</div>
 								<div class="card-body">
 									<h5 class="card-title ">{{ product.name }}</h5>
@@ -134,10 +134,10 @@
 <!-- End Categories of The Month -->
 
 
-<div class="container py-5">
+<div class="container col-12 m-auto pb-2 py-5">
 
-	<h3 class="text-center">Les catégories</h3>
-	<div class="row row-cols-1 row-cols-md-2 row-cols-lg-4">
+	<h1 class="text-center">Les catégories</h1>
+	<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
 
 		{% for category in categories %}
 			<div class="col-sm-12 col-md-6 col-lg-3 mt-3 ">
@@ -157,4 +157,9 @@
 		{% endfor %}
 
 	</div>
-</div>{% endblock %}
+</div>
+
+
+
+
+{% endblock %}

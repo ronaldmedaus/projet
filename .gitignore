@@ -1,4 +1,6 @@
+
 # Cache and logs (Symfony2)
+/.env
 /app/cache/*
 /app/logs/*
 !app/cache/.gitkeep

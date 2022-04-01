@@ -52,8 +52,8 @@
 							<img src="{{ product.imagePath }}" class="card-img-top imageCard" alt="image_category">
 							<div class="card-body">
 								<h5 class="card-title">{{ product.name }}</h5>
-								<p>{{ product.price | priceEuro }}</p>
-								<a href="{{ path('boutique_product_detail',{'id': product.id} ) }}" class="btn btn-primary w-100">Consulter</a>
+								<p class="card-title">{{ product.price | priceEuro }}</p>
+								<a href="{{ path('boutique_product_detail',{'id': product.id} ) }}" class="btn btn-primary w-100 card-title">Consulter</a>
 							</div>
 						</div>
 

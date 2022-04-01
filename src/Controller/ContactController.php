@@ -38,8 +38,30 @@ class ContactController extends AbstractController
             return $this->redirectToRoute('home');
         }
 
-        return $this->render('contact/index.html.twig', [
+        return $this->render('customer/contact/index.html.twig', [
             'form' => $form->createView()
+        ]);
+    }
+
+    public function contactSupport(SendPreparedMail $sendPreparedMail, Request $request)
+    {
+        $form = $this->createForm(ContactFormType::class);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $contentMessage =  $form->get('contentMessage')->getData();
+            $subjectMessage =  $form->get('subjectMessage')->getData();
+            $email =  $form->get('email')->getData();
+
+            $sendPreparedMail->sendMailToSupport($email, $contentMessage, $subjectMessage);
+
+            $this->addFlash("success", "Votre mail à bien été envoyé");
+            return $this->redirectToRoute("home");
+        }
+
+        return $this->render("customer/profile/contact_support.html.twig", [
+            'form' => $form->createView(),
         ]);
     }
 }

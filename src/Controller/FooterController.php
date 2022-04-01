@@ -41,3 +41,4 @@ class FooterController extends AbstractController
         ]);
     }
 }
+
