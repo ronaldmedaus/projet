@@ -31,7 +31,7 @@ class SendPreparedMail
 
     }
 
-    public function sendMailToContact(string $email,string $contentMessage, string $subjectMessage)
+    public function sendMailToContact(string $email, string $contentMessage, string $subjectMessage, string $message)
     {
         $contactEmail = (new TemplatedEmail())
             ->from('noreply@monsite.com')
@@ -43,11 +43,13 @@ class SendPreparedMail
                /*  'email' => $email,
                 'nom' => $nom,
                 'prenom' => $prenom,
-                'message' => $message*/
+                'message' => $message
+                user@user.user*/
 
                'emailCustomer' => $email,
                 'contentMessage' => $contentMessage,
-                'subjectMessage' => $subjectMessage
+                'subjectMessage' => $subjectMessage,
+                'message' => $message
                 
             ]);
 

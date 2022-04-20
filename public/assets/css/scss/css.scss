@@ -1,0 +1,361 @@
+// COLORS
+
+$red: #FE3E54;
+$blueDark: #393D50;
+$cream: #ECDCC3;
+$grey: #F7F6F4;
+$greyDark: #828282;
+$redLight: #FDE0DD;
+
+$white: #ffffff;
+$black: #000000;
+
+// FONTS
+
+$font: 'Montserrat', Helvetica, sans-serif;
+
+
+
+// BREAKPOINTS
+
+$bp-mobile: '599px';
+$bp-tablet: '600px';
+$bp-desktop-down: '1199px';
+$bp-desktop: '1200px';
+$bp-big-desktop: '1440px';
+
+
+
+// MEDIA QUERIES
+
+$phone-only: '(max-width: #{$bp-mobile})';          // @media #{$phone-only}
+$tablet-up: '(min-width: #{$bp-tablet})';           // @media #{$tablet-up}
+$desktop-down: '(max-width: #{$bp-desktop-down})';   // @media #{$desktop-down}
+$desktop-up: '(min-width: #{$bp-desktop})';         // @media #{$desktop-up}
+$big-desktop-up: '(min-width: #{$bp-big-desktop})'; // @media #{$big-desktop-up}
+
+body {
+  font-family: 'Montserrat', Helvetica, sans-serif;
+  color: $blueDark;
+}
+
+.bt-cta {
+  background: $red;
+  box-shadow: 0px 4px 10px rgba($red, 0.24);
+  border-radius: 3px;
+  text-align: center;
+
+  transition: box-shadow .3s;
+
+  //.no-touch .bt-cta:hover
+  &:hover {
+    .no-touch & {
+      box-shadow: 0px 16px 24px rgba($red, 0.2);
+    }
+  }
+
+  //.bt-cta__link
+  &__link {
+    display: block;
+    padding: 14px 30px;
+
+    color: $white;
+  }
+}
+
+.bt-button {
+  font-style: normal;
+  font-weight: bold;
+  font-size: rem(12px);
+  line-height: rem(18px);
+  
+  letter-spacing: 0.75px;
+  text-transform: uppercase;
+}
+
+#tarteaucitronBack {
+  background: rgba($black, 0.4);
+}
+
+#tarteaucitronPercentage {
+  background: $red;
+}
+
+.bt-layout-tarteaucitron {
+  position: fixed;
+  bottom: 0;
+
+  background: $white;
+  color: $blueDark;
+  box-shadow: 0px -4px 10px rgba($black, 0.1);
+
+  &__disclaimer {
+    display: block;
+    text-align: center;
+    font-size: rem(14px);
+    line-height: rem(22px);
+    margin-bottom: 10px;
+    
+    @media #{$desktop-up} {
+      display: inline-block;
+      vertical-align: bottom;
+      max-width: 42%;
+      margin-right: 20%;
+      text-align: left;
+    }
+  }
+
+  &__personalize {
+    @extend .bt-cta;
+    @extend .bt-cta__link;
+    @extend .bt-button;
+    border: none;
+    appearance: none;
+    padding: 14px 10px;
+    font-size: rem(10px);
+    line-height: rem(12px);
+
+    @media #{$desktop-up} {
+      padding: 14px 30px;
+      font-size: rem(12px);
+      line-height: rem(18px);
+    }
+  }
+
+  &__close {
+    @extend .bt-cta;
+    @extend .bt-cta__link;
+    @extend .bt-button;
+    appearance: none;
+    background: $white;
+    border: 1px solid $red;
+    color: $red;
+    padding: 14px 10px;
+    font-size: rem(10px);
+    line-height: rem(12px);
+
+    @media #{$desktop-up} {
+      padding: 14px 30px;
+      font-size: rem(12px);
+      line-height: rem(18px);
+    }
+  }
+
+  &__switcher {
+    &-input {
+      position: absolute;
+      display: block;
+  
+      bottom: 0;
+      left: 0;
+      opacity: 0;
+      right: 0;
+      top: 0;
+      
+      touch-action: manipulation;
+      appearance: none;
+      z-index: 1;
+
+      &:checked + .bt-layout-tarteaucitron__switcher-label::before {
+        background-color: $red;
+        content: "✔";
+        color: $white;
+        text-align: left;
+      }
+
+      &:checked + .bt-layout-tarteaucitron__switcher-label::after {
+        background-color: white;
+        right: 3px;
+      }
+    }
+
+    &-label {
+      position: relative;
+      display: block;
+
+      &::before,
+      &::after {
+        position: absolute;
+        display: block;
+        content: '';
+      }
+
+      &::before {
+        content: "✘";
+        border-radius: 30px;
+        height: 22px;
+        line-height: 22px;
+        right: 0;
+        top: 0;
+        background: #BDBDBD;
+        color: #828282;
+        transition: background-color .3s ease-in-out;
+        width: 30px;
+        padding: 0 7px;
+        font-size: rem(12px);
+        text-align: right;
+      }
+
+      &::after {
+        background-color: white;
+        border-radius: 50%;
+        right: 23px;
+        top: 2px;
+        height: 18px;
+        width: 19px;
+        transition: right .3s ease-in-out;
+      }
+    }
+  }
+
+  &__modal {
+    width: 91%;
+    top: 5% !important;
+    transform: translateX(-50%);
+
+    background: $white;
+    padding: 15px;
+    border-radius: 5px;
+    
+    @media #{$desktop-up} {
+      top: 45% !important;
+      width: 570px;
+      padding: 40px 35px;
+      transform: translate(-50%, -50%);
+    }
+
+    &-header {
+      color: $blueDark;
+    }
+
+    &-title {
+      font-size: rem(18px);
+      line-height: rem(20px);
+    }
+
+    &-infobox {
+      color: #828282;
+      font-size: rem(14px);
+      line-height: rem(20px);
+      font-weight: 500;
+      text-align: left;
+
+      margin: 10px 0;
+    }
+
+    #tarteaucitronServices {
+      @media #{$desktop-up} {
+        display: flex;
+        flex-wrap: wrap;
+      }
+    }
+
+    &-ask {
+      display: flex;
+      justify-content: space-between;
+      margin: 0 !important;
+      border-top: 1px solid $grey;
+      padding-top: 10px;
+      width: 100%;
+      
+      @media #{$desktop-up} {
+        justify-content: flex-end;
+        align-self: flex-end;
+      }
+    }
+
+    &-allow,
+    &-deny {
+      @extend .bt-cta;
+      @extend .bt-cta__link;
+      @extend .bt-button;
+
+      font-size: rem(10px);
+      opacity: 1 !important;
+      border: none;
+      padding: 14px 10px;
+
+      @media #{$desktop-up} {
+        font-size: rem(12px);
+        padding: 14px 30px;
+      }
+    }
+    
+    &-deny {
+      background: $white;
+      color: $red;
+      border: 1px solid $red;
+
+      margin-left: 10px;
+    }
+
+    .tarteaucitronTitle {
+      button {
+        margin-bottom: 7px;
+        padding: 0;
+        
+        color: $red;
+        font-weight: 500;
+        font-size: rem(14px);
+        line-height: rem(20px);
+        letter-spacing: 0.8px;
+        text-transform: uppercase;
+        
+        background: none;
+        appearance: none;
+        border: none;
+      }
+    }
+
+    ul .tarteaucitronLine {
+      background: #F4F4F4;
+      padding: 10px;
+    }
+
+    .tarteaucitronH3 {
+      font-size: rem(16px);
+    }
+
+    .tarteaucitronListCookies {
+      color: #828282;
+    }
+  }
+
+  &__details {
+    display: block !important;
+    font-weight: 500;
+    font-size: rem(12px);
+    line-height: rem(17px);
+    color: #828282;
+
+    margin-bottom: 10px;
+  }
+
+  &__name {
+    width: 80%;
+  }
+
+  &__list {
+    margin-top: 10px;
+  }
+
+  &__closepanel {
+    width: 25px;
+    height: 25px;
+    background: #E8E8E8;
+    color: #9E9E9E;
+    border: none;
+    border-radius: 100%;
+    padding: 0;
+    right: 10px;
+    top: 10px;
+
+    @media #{$desktop-up} {
+      right: 25px;
+      top: 25px;
+    }
+  }
+}
+
+
+

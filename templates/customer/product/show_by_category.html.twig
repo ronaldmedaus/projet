@@ -1,14 +1,15 @@
 {% extends 'base.html.twig' %}
 
 
-{% block title %}Site chaussures
+{% block description %}
+{{ category.name }} chaussures,
 {% endblock %}
 
 {% block body %}
 
 
 	<!-- Start Categories of The Month -->
-	<section class="container py-5">
+	<section class="container" style="margin-top: 100px">
 		<div class="row text-center pt-3">
 			<div class="col-12 d-flex align-items-center justify-content-between m-auto">
 				<h1 class="h1">{{category.name}}</h1>

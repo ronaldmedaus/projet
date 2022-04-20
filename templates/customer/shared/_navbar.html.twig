@@ -1,7 +1,8 @@
 <!-- Header -->
 
 <!-- Navbar  -->
-	<nav class="navbar navbar-expand-lg navbar-light bg-light"> <div class="container-fluid">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top mask-custom shadow-0"> 
+	<div class="container-fluid">
 		<a class="navbar-brand" href="{{path("home")}}">FFR</a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
@@ -23,10 +24,10 @@
 
 				{% else %}
 					<li class="nav-item">
-						<a href="{{ path("app_login")}}" class="btn btn-primary md btn-xs segment-button" tabindex="-1" role="button">Se connecter</a>
+						<a href="{{ path("app_login")}}" class="btn btn-primary md btn-xs" tabindex="-1" role="button">Se connecter</a>
 					</li>
 					<li class="nav-item">
-						<a href="{{ path("app_register")}}" class="btn btn-secondary btn-xs segment-button" tabindex="-1" role="button">S'inscrire</a>
+						<a href="{{ path("app_register")}}" class="btn btn-secondary btn-xs" tabindex="-1" role="button">S'inscrire</a>
 					</li>
 
 

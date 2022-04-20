@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Condition;
 use App\Form\ConditionType;
+use App\Repository\ConditionRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,25 +21,62 @@ class FooterController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/mentionLegale', name: 'admin_mentionLegale')]
-    public function mentionLegale(Request $request, EntityManagerInterface $em): Response
+    #[Route('/admin/{nom}/edit', name: 'admin_condition_edit')]
+    public function edit($nom, ConditionRepository $conditionRepository, Request $request, EntityManagerInterface $em): Response
     {
-        $user = $this->getUser();
+        //je vais chercher la condition qui correspond au nom reçu dans la route
+        $condition = $conditionRepository->findOneBy([
+            'title' => $nom
+        ]);
+        // je crée une variable qui va me permettre de savoir si je suis en train d'éditer ou pas
+        $isEdit=true;
+        // si condition est égale à null on la crée
+        if(!$condition)
+        {   
+            $condition = new Condition();
+            $condition->setTitle($nom);
+            $isEdit=false;
+        }
 
-        $form = $this->createForm(ConditionType::class);
+        $form = $this->createForm(ConditionType::class, $condition);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) 
+        if($form->isSubmitted() && $form->isValid()) 
         {
-            $em->persist($user);
+            if(!$isEdit){
+                $em->persist($condition);
+            }
+            
             $em->flush();
 
             $this->addFlash("success", "Les Mentions ont bien été modifiées.");
-            return $this->redirectToRoute("admin_mentionLegale");
+            return $this->redirectToRoute("admin_condition_edit",[
+                "nom" => $nom
+            ]);
         }
 
-        return $this->render('admin/footer/mentionLegale.html.twig', [
+        return $this->render('admin/footer/condition_edit.html.twig', [
             'form' => $form->createView(),
+        ]);
+    }
+
+    #[Route('/customer/{nom}/show', name: 'customer_condition_show')]
+    public function show($nom, ConditionRepository $conditionRepository, Request $request, EntityManagerInterface $em): Response
+    {
+        //je vais chercher la condition qui correspond au nom reçu dans la route
+        $condition = $conditionRepository->findOneBy([
+            'title' => $nom
+        ]);
+    
+        // si condition est égale à null on redirige vers la page d'acceuil
+        if(!$condition)
+        {   
+            return $this->redirectToRoute("home");
+        }
+
+        
+        return $this->render('customer/footer/document.html.twig', [
+            'condition' => $condition,
         ]);
     }
 }

@@ -1,8 +1,8 @@
-.colorBgNav{
+.colorBgNav {
     background-color: #343a40;
 }
 
-.button{
+.button {
     background-color: rgb(108, 107, 107) !important;
     border: none;
     color: rgb(254, 254, 254);
@@ -17,59 +17,62 @@
 }
 
 
-.imageDetailProduct{
+.imageDetailProduct {
     height: 600px;
     object-fit: cover;
 }
 
-.card-title{ /* POUR minimaliser le texte sans qu'il sorte de la div*/
+.card-title {
+    /* POUR minimaliser le texte sans qu'il sorte de la div*/
     /* text-overflow: ellipsis; */
     white-space: nowrap;
     overflow: hidden;
 }
 
+/*
 .imageCard{
     height: 300px;
 }
-
+*/
 
 
 /*****************
     - Header -
 *****************/
 header {
-	position:relative;
-	left:0;
-	top:0;
-	width:100%;
-	min-height:120px;
-	padding:50px 0;
-	color:#fff;
-	background: #383838 url(https://www.athenadesignstudio.com/plugins/switch/images/bg.jpg) no-repeat center center;
-	margin-bottom:30px
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100%;
+    min-height: 120px;
+    padding: 50px 0;
+    color: #fff;
+    background: #383838 url(https://www.athenadesignstudio.com/plugins/switch/images/bg.jpg) no-repeat center center;
+    margin-bottom: 30px
 }
 
 /* Logo */
 header .logo {
-	clear:both;
-    display:block;
-	text-align:center;
-    padding-bottom:10px;
+    clear: both;
+    display: block;
+    text-align: center;
+    padding-bottom: 10px;
 }
 
 /* Title */
 header h1 {
-    font-weight:300;
-    font-size:24px;
-    color:#eee;	
-	letter-spacing:2px;
-	text-align:center;
-	text-transform:uppercase;
-	margin:0 !important;
-	padding-bottom:25px;
+    font-weight: 300;
+    font-size: 24px;
+    color: #eee;
+    letter-spacing: 2px;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 0 !important;
+    padding-bottom: 25px;
 }
 
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800,900|Open Sans:400,600,800');
+
 h1,
 h2,
 h3,
@@ -714,21 +717,21 @@ body {
 }
 
 .btn-label {
-	position: relative;
-	left: -12px;
-	display: inline-block;
-	padding: 6px 12px;
-	background: rgba(0, 0, 0, 0.15);
-	border-radius: 3px 0 0 3px;
+    position: relative;
+    left: -12px;
+    display: inline-block;
+    padding: 6px 12px;
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 3px 0 0 3px;
 }
 
 .btn-labeled {
-	padding-top: 0;
-	padding-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
 .btn {
-	margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 
@@ -738,40 +741,40 @@ body {
     color: #e62100;
     border-width: thin;
     font-size: 12px;
-  }
-  
-  .segment-button:first-of-type {
-    width: 40px;
-    height: 38px;
-    border-radius: 50%;
-    font-size: 15px;
-    line-height: 40px;
-    max-width: 40px;
-    max-height: 40px;
-  }
-  
-  .segment-button:not(:first-of-type) {
-    width: 40px;
-    height: 38px;
-    border-radius: 50%;
-    font-size: 15px;
-    line-height: 40px;
-    max-width: 40px;
-    max-height: 40px;
-  }
-  
-  .segment-button:last-of-type {
-    width: 40px;
-    height: 38px;
-    border-radius: 50%;
-    font-size: 15px;
-    line-height: 40px;
-    max-width: 40px;
-    max-height: 40px;
-  }
+}
 
-  .imageCard {
-    height: 300px;
+.segment-button:first-of-type {
+    width: 40px;
+    height: 38px;
+    border-radius: 50%;
+    font-size: 15px;
+    line-height: 40px;
+    max-width: 40px;
+    max-height: 40px;
+}
+
+.segment-button:not(:first-of-type) {
+    width: 40px;
+    height: 38px;
+    border-radius: 50%;
+    font-size: 15px;
+    line-height: 40px;
+    max-width: 40px;
+    max-height: 40px;
+}
+
+.segment-button:last-of-type {
+    width: 40px;
+    height: 38px;
+    border-radius: 50%;
+    font-size: 15px;
+    line-height: 40px;
+    max-width: 40px;
+    max-height: 40px;
+}
+
+.imageCard {
+    height: 250px;
     object-fit: cover;
 }
 
@@ -784,4 +787,3 @@ body {
     filter: drop-shadow(0 0 5px bleu);
 
 }*/
-

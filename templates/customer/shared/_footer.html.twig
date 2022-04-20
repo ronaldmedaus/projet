@@ -48,10 +48,10 @@
 				<h2 class="h5 text-light border-bottom pb-3 border-light">Service client</h2>
 				<ul class="list-unstyled text-light footer-link-list">
 					<li>
-						<a class="text-decoration-none" href="#">Conditions générales de vente</a>
+						<a class="text-decoration-none" href="{{ path('customer_condition_show',{'nom':'Conditions générales de ventes'}) }}">Conditions générales de vente</a>
 					</li>
 					<li>
-						<a class="text-decoration-none" href="#">Retour et remboursement</a>
+						<a class="text-decoration-none" href="{{ path('customer_condition_show',{'nom':'Retour & Remboursement'}) }}">Retour et remboursement</a>
 					</li>
 
 					<li>
@@ -71,13 +71,13 @@
 						<a class="text-decoration-none" href="#">Gestions des cookies</a>
 					</li>
 					<li>
-						<a class="text-decoration-none" href="#">Mentions légales</a>
+						<a class="text-decoration-none" href="{{ path('customer_condition_show',{'nom':'Mentions Légales'}) }}">Mentions légales</a>
 					</li>
 					<li>
 						<a class="text-decoration-none" href="#">Plan du site</a>
 					</li>
 					<li>
-						<a class="text-decoration-none" href="#">Protections des données</a>
+						<a class="text-decoration-none" href="{{ path('customer_condition_show',{'nom':'Protections des données'}) }}">Protections des données</a>
 					</li>
 				</ul>
 
