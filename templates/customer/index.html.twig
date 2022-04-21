@@ -116,7 +116,7 @@
 									<p>{{ product.price | priceEuro }}
 										<div>
 											<a href="{{ path('boutique_product_detail',{'id': product.id} ) }}" class="btn btn-secondary btn-sm mx-3">Consulter</a>
-											<a class="btn btn-success btn-sm mx-3" href="{{ path('cart_add',{ 'id' : product.id }) }}?routeToRedirect=panier">
+											<a class="btn btn-success btn-sm mx-3" href="{{ path('cart_add',{ 'id' : product.id }) }}?routeToRedirect=home">
 												<i class="fa-solid fa-cart-plus"></i>
 											</a>
 										</div>

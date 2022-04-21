@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Entity\Purchase;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\ContentListProductRepository;
 
@@ -24,7 +25,6 @@ class ContentListProduct
     #[ORM\Column(type: 'integer')]
     private $quantity;
 
- 
 
     public function getId(): ?int
     {
