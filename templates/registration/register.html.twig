@@ -1,10 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register
+{% block title %}S'enregistrer
 {% endblock %}
 
 {% block body %}
-	<div class="container py-3">
+	<div class="container py-3"  style="margin-top: 100px; margin-bottom: 100px">
 		<div class="row">
 			<div class="col-12 mt-1">
 
@@ -20,7 +20,7 @@
         }) }}
 				{{ form_row(registrationForm.agreeTerms) }}
 
-				<button type="submit" class="btn btn-xs segment-button">S'inscrire</button>
+				<button type="submit" class="btn btn-success btn-xs">S'inscrire</button>
 				{{ form_end(registrationForm) }}
 			</div>
 		</div>

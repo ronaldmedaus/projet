@@ -1,8 +1,59 @@
 <!-- Header -->
 
-<!-- Navbar  -->
-	<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top mask-custom shadow-0"> 
-	<div class="container-fluid">
+<!-- Navbar  
+
+	<style>
+/* Dropdown Button */
+.dropbtn {
+	background-color: f8f9fa;
+	color: white;
+	padding: 16px;
+	font-size: 16px;
+	border: none;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+	position: relative;
+	display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: f8f9fa;
+	min-width: 160px;
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+	z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+	background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+	display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+	background-color: f8f9fa;
+}
+</style>
+-->
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top mask-custom shadow-0"> <div class="container-fluid">
 		<a class="navbar-brand" href="{{path("home")}}">FFR</a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
@@ -19,16 +70,23 @@
 					{% endif %}
 
 					<li class="nav-item">
-						<a class="nav-link" href="{{ path("app_logout")}}">Se deconnecter</a>
+						<a class="nav-link" href="{{ path("app_logout")}}">
+							<span class="fas fa-sign-out-alt me-1"></span>Se deconnecter</a>
 					</li>
 
 				{% else %}
-					<li class="nav-item">
-						<a href="{{ path("app_login")}}" class="btn btn-primary md btn-xs" tabindex="-1" role="button">Se connecter</a>
-					</li>
-					<li class="nav-item">
-						<a href="{{ path("app_register")}}" class="btn btn-secondary btn-xs" tabindex="-1" role="button">S'inscrire</a>
-					</li>
+					<ul class="nav navbar-nav ml-auto">
+						<li class="nav-item">
+							<a class="nav-link" href="{{ path("app_register")}}">
+								<span class="fas fa-user me-1"></span>
+								S'inscrire</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{{ path("app_login")}}">
+								<span class="fas fa-sign-in-alt me-1"></span>
+								Se connecter</a>
+						</li>
+					</ul>
 
 
 				{% endif %}
@@ -56,15 +114,29 @@
 		<a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal" data-bs-target="#templatemo_search">
 			<a class="nav-link" aria-current="page" href="{{ path('blog_post_list') }}">Blog</a>
 		</a>
-		<a class="nav-icon position-relative text-decoration-none" href="{{ path('cart_detail')}}">
+		<a class="nav-icon position-relative text-decoration-none me-3" href="{{ path('cart_detail')}}">
 			<i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
-			<!-- <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">7</span> -->
+			<!-- <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">7</span>-->
 
 		</a>
 		<a class="nav-icon position-relative text-decoration-none" href="{{ path('profile_detail')}}">
 			<i class="fa fa-fw fa-user text-dark mr-3"></i>
 			<!-- <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">+99</span> -->
 		</a>
+		<!-- fin Navbar 
+		<div class="dropdown" class="navbar">
+			<button class="dropbtn">
+				<i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
+			</button>
+			<div class="dropdown-content">
+				<a href="#">Link 1</a>
+				<a href="#">Link 2</a>
+				<a href="#">Link 3</a>
+			</div>
+		</div>
+		-->
+
 	</div>
+
 </nav>
 <!-- fin Navbar -->

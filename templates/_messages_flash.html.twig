@@ -1,7 +1,7 @@
 {% for rubrique,messages in app.flashes %}
 
 	{% for message in messages %}
-		<div class="col-12 mt-2">
+		<div class="col-12 mt-2" style="margin-top: 100px; margin-bottom: 100px">
 			<div class="alert alert-{{ rubrique }}">
 				<p>{{ message }}</p>
 			</div>

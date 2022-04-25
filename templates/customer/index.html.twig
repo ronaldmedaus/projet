@@ -5,161 +5,156 @@
 
 {% block body %}
 
-	<!-- Start SLIDER -->
-	<div id="template-mo-zay-hero-carousel" class="carousel slide" data-bs-ride="carousel" style="margin-top: 50px">
-		<ol class="carousel-indicators">
-			<li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="0" class="active"></li>
-			<li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="1"></li>
-			<li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="2"></li>
-		</ol>
-		<div class="carousel-inner">
+	<!-- Début SLIDER -->
+
+	<section>
+		<div id="template-mo-zay-hero-carousel" class="carousel slide" data-bs-ride="carousel">
+			<ol class="carousel-indicators">
+				<li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="0" class="active"></li>
+				<li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="1"></li>
+				<li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="2"></li>
+			</ol>
+			<div class="carousel-inner">
 
 
-			<div class="carousel-item active">
+				<div class="carousel-item active">
 
-				<div class="container">
+					<div class="container">
 
-					<div class="row p-5 style=height: 150px;">
+						<div class="row p-5 style=height: 150px;">
 
 
-						<div class="mx-auto col-md-8 col-lg-6 order-lg-last h-75">
+							<div class="mx-auto col-md-8 col-lg-6 order-lg-last h-75">
 
-							<img class="img-fluid" src="./assets/img/banner_img_01.jpg" alt="">
-						</div>
-						<div class="col-lg-6 mb-0 d-flex align-items-center">
-							<div class="text-align-left align-self-center">
-								<h1 class="h1 text-success">Airness</h1>
-
-								<h3 class="h2">Baskets blanc airness</h3>
-
-								<p>
-									On adore cette
-									<strong>basket basse blanche Airness</strong>
-									à la ligne sobre et épurée																																																																																																																																																																																	                                    If you wish to support TemplateMo, please make a small contribution via PayPal or tell your friends about our website. Thank you.
-								</p>
+								<img class="img-fluid" src="./assets/img/banner_img_01.jpg" alt="">
 							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="carousel-item">
-				<div class="container">
-					<div class="row p-5">
-						<div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-							<img class="img-fluid" src="./assets/img/banner_img_04.jpg" alt="">
-						</div>
-						<div class="col-lg-6 mb-0 d-flex align-items-center">
-							<div class="text-align-left">
-								<h1 class="h1">Trekk Femme</h1>
-								<h3 class="h2">MONTAGNE ELLERY FEMME</h3>
+							<div class="col-lg-6 mb-0 d-flex align-items-center">
+								<div class="text-align-left align-self-center">
+									<h1 class="h1 text-success">Airness</h1>
 
-								<p>
-									Modèle avec tige legère et doublure en veloutine pour faciles excursions d'une journée ; la semelle
-									<strong>Natural Shape</strong>
-									s'adapte à la forme du pied et garantit la stabilité et la protection nécessaires.
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="carousel-item">
-				<div class="container">
-					<div class="row p-5">
-						<div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-							<img class="img-fluid" src="./assets/img/banner_img_05.jpg" alt="">
-						</div>
-						<div class="col-lg-6 mb-0 d-flex align-items-center">
-							<div class="text-align-left">
-								<h1 class="h1">Airness</h1>
-								<h3 class="h2">baskets blanc airness</h3>
-								<p>
-									On adore cette
-									<strong>basket basse blanche Airness</strong>
-									à la ligne sobre et épurée																																																																																																																																																																																	                                    If you wish to support TemplateMo, please make a small contribution via PayPal or tell your friends about our website. Thank you.
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<a class="carousel-control-prev text-decoration-none w-auto ps-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="prev">
-			<i class="fas fa-chevron-left"></i>
-		</a>
-		<a class="carousel-control-next text-decoration-none w-auto pe-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="next">
-			<i class="fas fa-chevron-right"></i>
-		</a>
-	</div>
-	<!-- End SLIDER -->
+									<h3 class="h2">Baskets blanc airness</h3>
 
-	<!-- Start Categories of The Month -->
-	<section class="container py-5">
-		<div class="row text-center pt-3">
-			{% include "_messages_flash.html.twig" %}
-
-
-			<div class="col-12 m-auto pb-2">
-				<h1 class="h1">Nouveauté du mois</h1>
-				<div ="products" class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
-
-					{% for product in products %}
-						<div class="col-sm-12 col-md-6 col-lg-3 mt-3">
-							<div
-								class="card">
-								<!-- div.img a modifié pour pouvoir gerer la hauteur des images, mais la balise doit contenir uniquement l'image-->
-								<div class="img">
-									<img src="{{ product.imagePath }}" alt="image_category" class="card-img-top imageCard">
-								</div>
-								<div class="card-body">
-									<h5 class="card-title ">{{ product.name }}</h5>
-									<p>{{ product.price | priceEuro }}
-										<div>
-											<a href="{{ path('boutique_product_detail',{'id': product.id} ) }}" class="btn btn-secondary btn-sm mx-3">Consulter</a>
-											<a class="btn btn-success btn-sm mx-3" href="{{ path('cart_add',{ 'id' : product.id }) }}?routeToRedirect=home">
-												<i class="fa-solid fa-cart-plus"></i>
-											</a>
-										</div>
+									<p>
+										On adore cette
+										<strong>basket basse blanche Airness</strong>
+										à la ligne sobre et épurée																																																																																																																																																																																	                                    If you wish to support TemplateMo, please make a small contribution via PayPal or tell your friends about our website. Thank you.
 									</p>
-								</p>
+								</div>
 							</div>
 						</div>
 					</div>
+				</div>
+				<div class="carousel-item">
+					<div class="container">
+						<div class="row p-5">
+							<div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+								<img class="img-fluid" src="./assets/img/banner_img_04.jpg" alt="">
+							</div>
+							<div class="col-lg-6 mb-0 d-flex align-items-center">
+								<div class="text-align-left">
+									<h1 class="h1">Trekk Femme</h1>
+									<h3 class="h2">MONTAGNE ELLERY FEMME</h3>
+
+									<p>
+										Modèle avec tige legère et doublure en veloutine pour faciles excursions d'une journée ; la semelle
+										<strong>Natural Shape</strong>
+										s'adapte à la forme du pied et garantit la stabilité et la protection nécessaires.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="carousel-item">
+					<div class="container">
+						<div class="row p-5">
+							<div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+								<img class="img-fluid" src="./assets/img/banner_img_05.jpg" alt="">
+							</div>
+							<div class="col-lg-6 mb-0 d-flex align-items-center">
+								<div class="text-align-left">
+									<h1 class="h1">Airness</h1>
+									<h3 class="h2">baskets blanc airness</h3>
+									<p>
+										On adore cette
+										<strong>basket basse blanche Airness</strong>
+										à la ligne sobre et épurée																																																																																																																																																																																	                                    If you wish to support TemplateMo, please make a small contribution via PayPal or tell your friends about our website. Thank you.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<a class="carousel-control-prev text-decoration-none w-auto ps-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="prev">
+				<i class="fas fa-chevron-left"></i>
+			</a>
+			<a class="carousel-control-next text-decoration-none w-auto pe-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="next">
+				<i class="fas fa-chevron-right"></i>
+			</a>
+		</div>
+		<!-- Fin SLIDER -->
+
+
+		<!-- Début des Nouveautés du mois -->
+
+		<div class="container col-12 m-auto pb-2 pt-5">
+
+			<h1 class="text-center h1" style="margin-top: 100px; margin-bottom: 100px">Nouveauté du mois</h1>
+			<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+
+				{% for product in products %}
+					<div class="col-sm-12 col-md-6 col-lg-3 mt-3 ">
+
+						<div class="card">
+							<div class="img">
+								<img src="{{ product.imagePath }}" alt="image_product" class="card-img-top imageCard" style="width:100%">
+							</div>
+
+							<div class="card-body text-center">
+								<h5 class="card-title">{{ product.name }}</h5>
+								<p class="text-center">{{ product.price | priceEuro }}</p>
+								<a href="{{ path('boutique_product_detail', {'id': product.id}) }}" class="btn btn-secondary btn-sm mx-3">Consulter</a>
+								<a class="btn btn-success btn-sm mx-3" href="{{ path('cart_add',{ 'id' : product.id }) }}?routeToRedirect=home">
+									<i class="fa-solid fa-cart-plus"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+
 				{% endfor %}
 
 			</div>
 		</div>
-	</div>
-</section>
-<!-- End Categories of The Month -->
+	</section>
+
+	<!-- Fin des Nouveautés du mois -->
 
 
-<div class="container col-12 m-auto pb-2 py-5">
+	<!-- Début des Catégories du mois -->
+	<div class="container col-12 m-auto pb-2 pt-5">
 
-	<h1 class="text-center">Les catégories</h1>
-	<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+		<h1 class="text-center h1" style="margin-top: 100px; margin-bottom: 100px">Les catégories</h1>
+		<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3" style="margin-top: 100px; margin-bottom: 100px">
 
-		{% for category in categories %}
-			<div class="col-sm-12 col-md-6 col-lg-3 mt-3 ">
+			{% for category in categories %}
+				<div class="col-sm-12 col-md-6 col-lg-3 mt-3 ">
 
-				<div class="card">
-					<div class="img">
-						<img src="{{ category.imagePath }}" alt="image_category" class="card-img-top imageCard">
-					</div>
+					<div class="card">
+						<div class="img">
+							<img src="{{ category.imagePath }}" alt="image_category" class="card-img-top imageCard" style="width:100%">
+						</div>
 
-					<div class="card-body">
-						<h5 class="card-title">{{ category.name }}</h5>
-						<a href="{{ path('boutique_product_show_by_category', {'id': category.id}) }}" class="btn btn-secondary w-100">Consulter</a>
+						<div class="card-body">
+							<h5 class="card-title text-center">{{ category.name }}</h5>
+							<a href="{{ path('boutique_product_show_by_category', {'id': category.id}) }}" class="btn btn-secondary w-100">Consulter</a>
+						</div>
 					</div>
 				</div>
-			</div>
-			<!--<a href="{{ path('admin/category_show', {'id': category.id}) }}">show</a>-->
-		{% endfor %}
+				<!--<a href="{{ path('admin/category_show', {'id': category.id}) }}">show</a>-->
+			{% endfor %}
 
+		</div>
 	</div>
-</div>
-
-
-
-
+	<!-- Fin des Catégories du mois -->
 {% endblock %}

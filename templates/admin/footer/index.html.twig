@@ -1,6 +1,6 @@
 {% extends 'admin/base.html.twig' %}
 
-
+{% block title %}{{ condition.nom }}{% endblock %}
 {% block body %}
 	<div class="container py-5">
 		<div class="row justify-content-center">
@@ -17,7 +17,7 @@
 						<a href="{{ path('admin_condition_edit',{'nom':'Protections des données'}) }}" class="btn btn-info w-100 mt-2">Protection des donées</a>
 					</div>
 				</div>
-			</div>
+			</div> 
 		</div>
 	</div>
 
