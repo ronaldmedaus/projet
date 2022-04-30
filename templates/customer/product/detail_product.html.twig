@@ -8,6 +8,11 @@
 				{% include "_messages_flash.html.twig" %}
 
 				<div class="col-sm-12 col-md-4">
+
+				<a href="{{ path('home')}}" class="btn btn-light text-secondary mt-2">
+			<span class="btn-label btn-light">
+				<i class="fas fa-arrow-alt-circle-left"></i>
+			</span>Retour</a>
 					<div class="card">
 						<img src="{{ product.imagePath }}" class="card-img-top imageDetailProduct" alt="image_category">
 					</div>
@@ -20,9 +25,9 @@
 							<h5 class="card-title">{{ product.name }}</h5>
 							<p>{{ product.price | priceEuro }}</p>
 							<div class="row justify-content-end">
-								<a href="{{ path('cart_add',{ 'id' : product.id } ) }}" class="btn btn-success btn-sm col-md-4 mx-3">
-									<span class="btn-label btn-sm">
-										<i class="fa fa-plus"></i>
+								<a href="{{ path('cart_add',{ 'id' : product.id } ) }}" class="btn btn-label">
+									<span class="btn-label btn-success btn-sm">
+										<i class="fa-solid fa-cart-plus"></i>
 									</span>Ajouter au panier</a>
 
 							</div>
@@ -63,6 +68,7 @@
 
 			</div>
 		</div>
+		
 	</section>
 
 {% endblock %}

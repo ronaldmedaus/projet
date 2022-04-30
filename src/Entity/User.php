@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
@@ -22,24 +23,28 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $id;
 
     #[ORM\Column(type: 'string', length: 180, unique: true)]
+    #[Assert\NotBlank(message: 'Ce champs ne peut etre vide')]
     private $email;
 
     #[ORM\Column(type: 'json')]
     private $roles = [];
 
     #[ORM\Column(type: 'string')]
+    #[Assert\NotBlank(message: 'Ce champs ne peut etre vide')]
     private $password;
 
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Purchase::class)]
     private $purchases;
 
     #[ORM\Column(type: 'string', length: 100)]
+    #[Assert\NotBlank(message: 'Ce champs ne peut etre vide')]
     private $name;
 
     #[ORM\Column(type: 'string', length: 255, nullable:true)]
     private $imagePath;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Assert\NotBlank(message: 'Ce champs ne peut etre vide')]
     private $telephone;
 
     #[ORM\Column(type: 'string', length: 255)]

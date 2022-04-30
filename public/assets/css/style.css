@@ -1,3 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&family=Open+Sans&family=Roboto:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;1,200&family=Nunito:ital,wght@0,300;0,400;1,200&family=Open+Sans&family=Roboto:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;1,200&family=Open+Sans&family=Roboto:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;1,200&family=Nunito:ital,wght@0,300;0,400;1,200&family=Open+Sans&family=Roboto:wght@300;400&display=swap');
+
+
+
+.corpsPage {
+    padding-top: 90px;
+    padding-bottom: 60px;
+}
+
+.espaceBody {
+    margin-top: 50px;
+}
+
 .colorBgNav {
     background-color: #343a40;
 }
@@ -71,20 +89,43 @@ header h1 {
     padding-bottom: 25px;
 }
 
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800,900|Open Sans:400,600,800');
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-div,
-input,
+
+/* Typography */
+body,
+ul,
+li,
 p,
-a {
-    font-family: "Open Sans";
-    margin: 0px;
+a,
+label,
+input,
+div {
+    font-family: 'Montserrat', sans-serif !important;
+    font-family: 'Nunito', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px !important;
+    font-weight: 300 !important;
+}
+
+.h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Nunito', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-size: 48px !important;
+    font-weight: 200 !important;
+}
+
+.h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px !important;
+    font-weight: 300;
+}
+
+.h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px !important;
 }
 
 a,
@@ -810,4 +851,8 @@ body {
 /* Add rounded corners to the top left and the top right corner of the image */
 img {
     border-radius: 5px 5px 0 0;
+}
+
+.textGreen {
+    color: rgba(0, 225, 172, 0.906) !important;
 }

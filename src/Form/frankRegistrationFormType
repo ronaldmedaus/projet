@@ -1,0 +1,50 @@
+<?php
+
+->add('plainPassword', RepeatedType::class, [
+                'type' => PasswordType::class,
+                'options' => ['attr' => ['class' => 'password-field']],
+                'mapped' => false,
+                'label' => 'Mot de passe',
+                'required' => false,
+                'attr' => [
+                    'autocomplete' => 'new-password',
+                    'placeholder' => 'Mot de passe*'
+                ],
+
+                'constraints' => [
+                    new PasswordStrength(
+                        [
+                            'minLength' => 8, // nombre de caractère minimum
+                            'tooShortMessage' => 'Le mot de passe doit contenir au minimum 8 caractéres.',
+                            'minStrength' => 4, // 4 = trong le niveau de robustesse du mot de passe (de 1 à 5)
+                            'message' => 'Le mot de passe doit contenir au moins une majuscule, une minuscule, un chiffre et un caractère spécial.',
+                        ]
+                    )
+                ],
+
+                'first_options' => [
+                    'label' => 'Mot de passe',
+                    'attr' => [
+                        'placeholder' => 'Mot de passe*'
+                    ],
+                    'constraints' => [
+                        new NotBlank([
+                            'message' => 'Vous devez renseigner un mot de passe',
+                        ]),
+                    ],
+                ],
+
+                'second_options' => [
+                    'label' => 'Confirmer votre mot de passe',
+                    'attr' => [
+                        'placeholder' => 'Confirmer votre mot de passe*'
+                    ],
+                    'constraints' => [
+                        new NotBlank([
+                            'message' => 'Vous devez confirmer votre mot de passe',
+                        ]),
+                    ],
+                ],
+            ]);
+
+            ?

@@ -2,46 +2,47 @@
 
 {% block body %}
 
-    <section>
-        <div class="container" style="margin-top: 100px; margin-bottom: 100px">
-            <div class="row">
-                <div class="col-12 mb-3">
-                    <h3 class="text-center">Mes commandes</h3>
-                </div>
-                {% include "_messages_flash.html.twig" %}
-                <div class="col-12 mb-3">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">#id</th>
-                                <th scope="col">date</th>
-                                <th scope="col">Total</th>
-                                <th scope="col">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for item in purchases %}
-                                <tr>
-                                    <th>
-                                        {{ item.id }}
-                                    </th>
-                                    <td>{{ item.created_at | date('d-M-Y') }}</td>
-                                    <td>
-                                    {{ item.invoice.total | priceEuro }}
-                                    </td>
-                                    <td>
-                                    <a href="{{ path('profile_purchase_show',{'id': item.id}) }}" class="btn btn-primary"><i class="fas fa-eye"></i> Consulter</a>
-                                    </td>
-                                </tr>
-                            {% endfor %}
-                            
-                            
-                
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </section>
+	<section>
+		<div class="container" style="margin-top: 100px; margin-bottom: 100px">
+			<div class="row">
+				<div class="col-12 mb-3">
+					<h3 class="text-center">Mes commandes</h3>
+				</div>
+				{% include "_messages_flash.html.twig" %}
+				<div class="col-12 mb-3">
+					<table class="table">
+						<thead>
+							<tr>
+								<th scope="col">#id</th>
+								<th scope="col">date</th>
+								<th scope="col">Total</th>
+								<th scope="col">Action</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for item in purchases %}
+								{% if item.invoice %}
+									<tr>
+										<th>
+											{{ item.id }}
+										</th>
+										<td>{{ item.created_at | date('d-M-Y') }}</td>
+										<td>
+											{{ item.invoice.total | priceEuro }}
+										</td>
+										<td>
+											<a href="{{ path('profile_purchase_show',{'id': item.id}) }}" class="btn btn-primary">
+												<i class="fas fa-eye"></i>
+												Consulter</a>
+										</td>
+									</tr>
+								{% endif %}
+							{% endfor %}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</section>
 
 {% endblock %}
