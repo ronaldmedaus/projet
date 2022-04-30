@@ -55,8 +55,10 @@
 									<h1 class="h1 text-success">Maman et moi</h1>
 									<h3 class="h2">MAILLOT DE BAIN</h3>
 
-									<p> Pois Usine 
-										<strong>Vacances Imprimer </strong>
+									<p>
+										Pois Usine
+										<strong>Vacances Imprimer
+										</strong>
 										Vert Noir Rose Claire Sans Manches Actif Tenues assorties
 									</p>
 								</div>
@@ -72,7 +74,8 @@
 							</div>
 							<div class="col-lg-6 mb-0 d-flex align-items-center">
 								<div class="text-align-left">
-									<h1 class="h1 text-success">Maman et moi </h1>
+									<h1 class="h1 text-success">Maman et moi
+									</h1>
 									<h3 class="h2">Hauts Rose Claire</h3>
 									<p>
 										On adore cette
@@ -145,7 +148,7 @@
 						</div>
 
 						<div class="card-body">
-							<h5 class="card-title text-center">{{ category.name }}</h5>
+							<h5 class="card-title text-center">{{ category.name|u.truncate('10', '', false) }}</h5>
 							<a href="{{ path('boutique_product_show_by_category', {'id': category.id}) }}" class="btn btn-secondary w-100">Consulter</a>
 						</div>
 					</div>
