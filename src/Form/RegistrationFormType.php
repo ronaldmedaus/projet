@@ -46,7 +46,7 @@ class RegistrationFormType extends AbstractType
                 ],
             ])
 
-            ->add('plainPassword', RepeatedType::class, [
+            /*- ->add('plainPassword', RepeatedType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
                 'type' => PasswordType::class,
@@ -92,10 +92,10 @@ class RegistrationFormType extends AbstractType
                         ]),
                     ],
                 ],
-            ]);
+            ]);*/
 
         // Mon code Original
-        /*  ->add('plainPassword', PasswordType::class, [
+        ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
                 'mapped' => false,
@@ -117,7 +117,7 @@ class RegistrationFormType extends AbstractType
                         'message' => 'le mot de passe doit contenir au moins une lettre majuscule, une lettrre minuscule, un chiffre et un caractère spécial.',
                     ]),
                 ],
-            ]);*/
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

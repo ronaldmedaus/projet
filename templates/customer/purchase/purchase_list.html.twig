@@ -21,7 +21,7 @@
 						</thead>
 						<tbody>
 							{% for item in purchases %}
-								{% if item.invoice %}
+								{# {% if item.invoice %} #}
 									<tr>
 										<th>
 											{{ item.id }}
@@ -36,7 +36,7 @@
 												Consulter</a>
 										</td>
 									</tr>
-								{% endif %}
+								{# {% endif %} #}
 							{% endfor %}
 						</tbody>
 					</table>
