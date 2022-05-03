@@ -18,6 +18,7 @@ class StripeController extends AbstractController
         Stripe::setApiKey('sk_test_51KQApCAwqWguGXeqn4RgkcPjusmRFrm52LnIWwyWyhHT7bryB4HYlRFKZXga44wZU8hNJZg9uzFbYhWCGF6gJdC400xJJCKyiV');
         
         $YOUR_DOMAIN = 'http://127.0.0.1:8000';
+        //$YOUR_DOMAIN = 'https://projet01.ronaldmedaus.com';
 
         /** @var User $user */
         $user = $this->getUser();
