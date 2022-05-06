@@ -54,89 +54,87 @@
 -->
 
 	<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top mask-custom shadow-0"> <div class="container-fluid">
-		<a class="navbar-brand" href="{{path("home")}}">FFR</a>
-		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-				{% if app.user %}
+		<a class="navbar-brand" href="{{path("home")}}"><img class="img-fluid logo" src="./assets/img/20220504_082014.jpg" alt="logo du site" width="75px" height="80px"></i>
+	</a>
+	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			{% if app.user %}
 
-					{% if app.user.roles[0] is same as "ROLE_ADMIN" %}
-
-						<li class="nav-item">
-							<a class="nav-link active" aria-current="page" href="{{ path("admin_home")}}">Administration</a>
-						</li>
-					{% endif %}
+				{% if app.user.roles[0] is same as "ROLE_ADMIN" %}
 
 					<li class="nav-item">
-						<a class="nav-link" href="{{ path("app_logout")}}">
-							<span class="fas fa-sign-out-alt me-1"></span>Se deconnecter</a>
+						<a class="nav-link active" aria-current="page" href="{{ path("admin_home")}}">Administration</a>
 					</li>
-
-				{% else %}
-					<ul class="nav navbar-nav ml-auto">
-						<li class="nav-item">
-							<a class="nav-link" href="{{ path("app_register")}}">
-								<span class="fas fa-user me-1"></span>
-								S'inscrire</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="{{ path("app_login")}}">
-								<span class="fas fa-sign-in-alt me-1"></span>
-								Se connecter</a>
-						</li>
-					</ul>
-
-
 				{% endif %}
 
 				<li class="nav-item">
-					<a class="nav-link" href="{{ path('home')}}">Accueil</a>
+					<a class="nav-link" href="{{ path("app_logout")}}">
+						<span class="fas fa-sign-out-alt me-1"></span>Se deconnecter</a>
 				</li>
 
+			{% else %}
+				<ul class="nav navbar-nav ml-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path("app_register")}}">
+							<span class="fas fa-user me-1"></span>
+							S'inscrire</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path("app_login")}}">
+							<span class="fas fa-sign-in-alt me-1"></span>
+							Se connecter</a>
+					</li>
+				</ul>
 
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-						Catégories
-					</a>
 
-					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-						{% for category in categoryRepository.findAll() %}
-							<li>
-								<a class="dropdown-item" href="{{ path('boutique_product_show_by_category',{'id':category.id}) }}">{{category.name}}</a>
-							</li>
-						{% endfor %}
-					</ul>
-				</li>
-			</ul>
-		</div>
-		<a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal" data-bs-target="#templatemo_search">
-			<a class="nav-link" aria-current="page" href="{{ path('blog_post_list') }}">Blog</a>
-		</a>
-		<a class="nav-icon position-relative text-decoration-none me-3" href="{{ path('cart_detail')}}">
-			<i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
-			<span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">{{ handleCart.detailPanier() | length }}</span>
+			{% endif %}
 
-		</a>
-		<a class="nav-icon position-relative text-decoration-none" href="{{ path('profile_detail')}}">
-			<i class="fa fa-fw fa-user text-dark mr-3"></i>
-			<!-- <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">+99</span> -->
-		</a>
-		<!-- fin Navbar 
-		<div class="dropdown" class="navbar">
-			<button class="dropbtn">
-				<i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
-			</button>
-			<div class="dropdown-content">
-				<a href="#">Link 1</a>
-				<a href="#">Link 2</a>
-				<a href="#">Link 3</a>
-			</div>
-		</div>
-		-->
+			<li class="nav-item">
+				<a class="nav-link" href="{{ path('home')}}">Accueil</a>
+			</li>
 
+
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+					Catégories
+				</a>
+
+				<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+					{% for category in categoryRepository.findAll() %}
+						<li>
+							<a class="dropdown-item" href="{{ path('boutique_product_show_by_category',{'id':category.id}) }}">{{category.name}}</a>
+						</li>
+					{% endfor %}
+				</ul>
+			</li>
+		</ul>
 	</div>
+	<a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal" data-bs-target="#templatemo_search">
+		<a class="nav-link" aria-current="page" href="{{ path('blog_post_list') }}">Blog</a>
+	</a>
+	<a class="nav-icon position-relative text-decoration-none me-3" href="{{ path('cart_detail')}}">
+		<i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
+		<span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">{{ handleCart.detailPanier() | length }}</span>
 
-</nav>
-<!-- fin Navbar -->
+	</a>
+	<a class="nav-icon position-relative text-decoration-none" href="{{ path('profile_detail')}}">
+		<i class="fa fa-fw fa-user text-dark mr-3"></i>
+		<!-- <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">+99</span> -->
+	</a>
+	<!-- fin Navbar 
+																	<div class="dropdown" class="navbar">
+																		<button class="dropbtn">
+																			<i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
+																		</button>
+																		<div class="dropdown-content">
+																			<a href="#">Link 1</a>
+																			<a href="#">Link 2</a>
+																			<a href="#">Link 3</a>
+																		</div>
+																	</div>
+																	-->
+
+</div></nav><!-- fin Navbar -->

@@ -35,6 +35,11 @@
 }
 
 
+.logo {
+    width: 75px;
+    height: 80px;
+}
+
 .imageDetailProduct {
     height: 600px;
     object-fit: cover;
