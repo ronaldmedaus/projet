@@ -5,7 +5,6 @@
 
 {% block body %}
 	<div class="container col-md-6 pt-4" style="margin-top: 100px; margin-bottom: 100px">
-		
 
 
 		<div class="row pt-4">
@@ -14,7 +13,7 @@
 				<h4>Contacter notre équipe pour en savoir plus sur FFR</h4>
 			</div>
 
-{% include "_messages_flash.html.twig" %}
+			{% include "_messages_flash.html.twig" %}
 			<div class="contact-form mb-2">
 
 				<div class="form-group justify-content-center">
@@ -41,7 +40,7 @@
 				</div>
 
 				<div class="form-group">
-					<input type="submit" value="Nous faire parvenir" class="btn btn-primary py-3 px-5 w-100">
+					<input type="submit" value="Envoyer" class="btn btn-secondary py-3 px-5 w-50">
 				</div>
 				{{ form_end(form) }}
 			</div>

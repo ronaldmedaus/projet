@@ -23,22 +23,43 @@ class RegistrationFormType extends AbstractType
         $builder
             ->add('name', TextType::class, [
                 'label' => 'Votre nom complet',
-                'required' => false
+                'required' => false,
+                'constraints' => [
+                    new NotBlank([
+                        'message' => 'Renseignez votre nom complet svp',
+                    ]),
+                ],
             ])
             ->add('telephone', TextType::class, [
                 'label' => 'Votre téléphone',
-                'required' => false
+                'required' => false,
+                'constraints' => [
+                    new NotBlank([
+                        'message' => 'Renseignez votre téléphone svp',
+                    ]),
+                ],
             ])
             ->add('email', EmailType::class, [
                 'label' => 'Adresse email',
-                'required' => false
+                'required' => false,
+                'constraints' => [
+                    new NotBlank([
+                        'message' => 'Renseignez votre e-mail svp',
+                    ]),
+                ],
             ])
             ->add('adresse', TextType::class, [
                 'label' => 'Votre Adresse',
-                'required' => false
+                'required' => false,
+                'constraints' => [
+                    new NotBlank([
+                        'message' => 'Renseignez votre adresse svp',
+                    ]),
+                ],
             ])
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
+                'required' => false,
                 'constraints' => [
                     new IsTrue([
                         'message' => 'Acceptez nos CGU svp',
@@ -94,23 +115,24 @@ class RegistrationFormType extends AbstractType
                 ],
             ]);*/
 
-        // Mon code Original
-        ->add('plainPassword', PasswordType::class, [
+            // Mon code Original
+            ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
                 'mapped' => false,
+                'required' => false,
                 'attr' => ['autocomplete' => 'new-password'],
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Renseignez un mot de passe svp!',
+                        'message' => 'Renseignez un mot de passe svp',
                     ]),
                     //new Length([
                     //    'min' => 6,
-                      //  'minMessage' => 'Votre mot de passe doit faire au moins {{ limit }} characters',
-                        // max length allowed by Symfony for security reasons
-                        //'max' => 4096,
+                    //  'minMessage' => 'Votre mot de passe doit faire au moins {{ limit }} characters',
+                    // max length allowed by Symfony for security reasons
+                    //'max' => 4096,
                     //]),
-                    new PasswordStrength ([ 
+                    new PasswordStrength([
                         'minLength'  => 8,
                         'tooShortMessage' => 'le mot de passe doit contenir au moins 8 caractères',
                         'minStrength' => 4,
