@@ -26,31 +26,34 @@ class PaymentResultController extends AbstractController
             ]
         );
         
-        $invoice = new Invoice();
-
-        $invoice->setPurchase($purchase);
-        $invoice->setIsPaid(1);
-        $invoice->setTotal($handleCart->getTotalPanier());
-
-        $em->persist($invoice);
-
-        $productsDetail = $handleCart->detailPanier();
-
-        foreach($productsDetail as $item)
-        {
-        $contentInvoice = new ContentInvoice();
-
-        $contentInvoice->setImageProduct($item->getProduct()->getImagePath());
-        $contentInvoice->setInvoice($invoice);
-        $contentInvoice->setPriceProduct($item->getProduct()->getPrice());
-        $contentInvoice->setProductName($item->getProduct()->getName());
-        $contentInvoice->setQuantity($item->getQty());
-
-        $em->persist($contentInvoice);
+        if (!$purchase->getInvoice()) {
+            
+            $invoice = new Invoice();
+            
+            $invoice->setPurchase($purchase);
+            $invoice->setIsPaid(1);
+            $invoice->setTotal($handleCart->getTotalPanier());
+            
+            $em->persist($invoice);
+            
+            $productsDetail = $handleCart->detailPanier();
+            
+            foreach($productsDetail as $item)
+            {
+                $contentInvoice = new ContentInvoice();
+                
+                $contentInvoice->setImageProduct($item->getProduct()->getImagePath());
+                $contentInvoice->setInvoice($invoice);
+                $contentInvoice->setPriceProduct($item->getProduct()->getPrice());
+                $contentInvoice->setProductName($item->getProduct()->getName());
+                $contentInvoice->setQuantity($item->getQty());
+                
+                $em->persist($contentInvoice);
+            }
+            
+            $em->flush();
         }
-
-        $em->flush();
-
+            // Après le paiment, je vide le panier
         $handleCart->emptyCart();
 
         return $this->render("customer/purchase/thank_you.html.twig");

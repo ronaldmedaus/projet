@@ -10,67 +10,74 @@
 				</div>
 				{% include "_messages_flash.html.twig" %}
 				<div>
-					<table class="table">
-						<thead>
-							<tr>
-								<th scope="col">Produit</th>
-								<th scope="col"></th>
-								<th scope="col">Prix Unitaire</th>
-								<th scope="col">Quantité</th>
-								<th scope="col">Total</th>
-							</tr>
-						</thead>
-						<tbody>
-							{% for item in detailProducts %}
-								<tr>
-									<th>
-										<div class="d-flex align-items-center">
-											<img src="{{ item.product.imagePath }}" alt="" style="height:80px;object-fit:contain;">
-											<div class=" d-flex flex-column align-items-center px-3">
-												<p>{{ item.product.name }}</p>
-											</div>
-										</div>
-									</th>
-									<th>
-										<a class="btn btn-warning btn-sm text-white" href="{{ path('cart_remove_product',{'id': item.product.id }) }}">Supprimer</a>
-									</th>
-									<td>{{ item.product.price | priceEuro }}</td>
-									<td>
-										<a class="btn btn-dark" href="{{ path('cart_decrement_product',{'id' : item.product.id }) }}">
-											<i class="fas fa-minus-circle"></i>
-										</a>
-										<button class="btn btn-light">
-											{{ item.qty }}</button>
-										<a class="btn btn-dark" href="{{ path('cart_add',{'id' : item.product.id }) }}?routeToRedirect=panier">
-											<i class="fas fa-plus-circle"></i>
-										</a>
-									</td>
-									<td>{{ item.total | priceEuro }}</td>
-								</tr>
-							{% endfor %}
-							<tr>
-								<th colspan="3"></th>
-								<th>
-									<p>
-										<strong>Sous tolal</p>
-									</p>
-								</th>
-								<th>
-									<p>
-										<strong>{{ totalPrixPanier | priceEuro }}</strong>
-									</p>
-								</th>
-							</tr>
-
-						</tbody>
-					</table>
+					{% if detailProducts | length > 0 %}
+						<div class="table-responsive">
+							<table class="table">
+								<thead>
+									<tr>
+										<th scope="col">Produit</th>
+										<th scope="col"></th>
+										<th scope="col">Prix Unitaire</th>
+										<th scope="col">Quantité</th>
+										<th scope="col">Total</th>
+									</tr>
+								</thead>
+								<tbody>
+									{% for item in detailProducts %}
+										<tr>
+											<th>
+												<div class="d-flex align-items-center">
+													<img src="{{ item.product.imagePath }}" alt="" style="height:80px;object-fit:contain;">
+													<div class=" d-flex flex-column align-items-center px-3">
+														<p>{{ item.product.name }}</p>
+													</div>
+												</div>
+											</th>
+											<th>
+												<a class="btn btn-warning btn-sm text-white" href="{{ path('cart_remove_product',{'id': item.product.id }) }}">Supprimer</a>
+											</th>
+											<td>{{ item.product.price | priceEuro }}</td>
+											<td>
+												<a class="btn btn-dark" href="{{ path('cart_decrement_product',{'id' : item.product.id }) }}">
+													<i class="fas fa-minus-circle"></i>
+												</a>
+												<button class="btn btn-light">
+													{{ item.qty }}</button>
+												<a class="btn btn-dark" href="{{ path('cart_add',{'id' : item.product.id }) }}?routeToRedirect=panier">
+													<i class="fas fa-plus-circle"></i>
+												</a>
+											</td>
+											<td>{{ item.total | priceEuro }}</td>
+										</tr>
+									{% endfor %}
+									<tr>
+										<th colspan="3"></th>
+										<th>
+											<p>
+												<strong>Sous tolal</p>
+											</p>
+										</th>
+										<th>
+											<p>
+												<strong>{{ totalPrixPanier | priceEuro }}</strong>
+											</p>
+										</th>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					{% else %}
+						<p>Le panier est vide</p>
+					{% endif %}
 				</div>
-				
-					<div class="col-12 d-flex justify-content-end">
+
+				<div class="col-12 d-flex justify-content-end">
+					{% if detailProducts | length > 0 %}
 						<a href="{{ path('boutique_commande_recap')}}" class="btn btn-success">
 							Valider le panier</a>
-					</div>
-				
+					{% endif %}
+				</div>
+
 			</div>
 		</div>
 

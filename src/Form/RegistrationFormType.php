@@ -67,27 +67,15 @@ class RegistrationFormType extends AbstractType
                 ],
             ])
 
-            /*- ->add('plainPassword', RepeatedType::class, [
+            ->add('plainPassword', RepeatedType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
                 'type' => PasswordType::class,
-                'option' => ['attr' => ['class' => 'password-field']],
                 'mapped' => false,
                 'label' => 'Mot de passe',
                 'attr' => [
                     'autocomplete' => 'new-password',
                     'placeholder' => 'Mot de passe*'
-                ],
-
-                'constraints' => [
-                    new PasswordStrength(
-                        [
-                            'minLength'  => 8,
-                            'tooShortMessage' => 'le mot de passe doit contenir au moins 8 caractères',
-                            'minStrength' => 4,
-                            'message' => 'le mot de passe doit contenir au moins une lettre majuscule, une lettrre minuscule, un chiffre et un caractère spécial.',
-                        ]
-                    )
                 ],
 
                 'first_options' => [
@@ -113,33 +101,10 @@ class RegistrationFormType extends AbstractType
                         ]),
                     ],
                 ],
-            ]);*/
+            ]);
 
             // Mon code Original
-            ->add('plainPassword', PasswordType::class, [
-                // instead of being set onto the object directly,
-                // this is read and encoded in the controller
-                'mapped' => false,
-                'required' => false,
-                'attr' => ['autocomplete' => 'new-password'],
-                'constraints' => [
-                    new NotBlank([
-                        'message' => 'Renseignez un mot de passe svp',
-                    ]),
-                    //new Length([
-                    //    'min' => 6,
-                    //  'minMessage' => 'Votre mot de passe doit faire au moins {{ limit }} characters',
-                    // max length allowed by Symfony for security reasons
-                    //'max' => 4096,
-                    //]),
-                    new PasswordStrength([
-                        'minLength'  => 8,
-                        'tooShortMessage' => 'le mot de passe doit contenir au moins 8 caractères',
-                        'minStrength' => 4,
-                        'message' => 'le mot de passe doit contenir au moins une lettre majuscule, une lettrre minuscule, un chiffre et un caractère spécial.',
-                    ]),
-                ],
-            ]);
+        
     }
 
     public function configureOptions(OptionsResolver $resolver): void
