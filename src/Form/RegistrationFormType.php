@@ -71,6 +71,8 @@ class RegistrationFormType extends AbstractType
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
                 'type' => PasswordType::class,
+                'invalid_message' => 'Les mots de passe ne correspondent pas.',
+                
                 'mapped' => false,
                 'label' => 'Mot de passe',
                 'attr' => [
@@ -103,8 +105,8 @@ class RegistrationFormType extends AbstractType
                 ],
             ]);
 
-            // Mon code Original
-        
+        // Mon code Original
+
     }
 
     public function configureOptions(OptionsResolver $resolver): void
