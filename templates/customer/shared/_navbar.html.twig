@@ -60,7 +60,7 @@
 		<span class="navbar-toggler-icon"></span>
 	</button>
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
-		<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+		<ul class="navbar-nav me-auto mb-2 mb-lg-0 snip1211">
 
 			<li class="nav-item">
 				<a class="nav-link" href="{{ path('home')}}">Accueil</a>
@@ -75,7 +75,7 @@
 				<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 					{% for category in categoryRepository.findAll() %}
 						<li>
-							<a class="dropdown-item" href="{{ path('boutique_product_show_by_category',{'id':category.id}) }}">{{category.name}}</a>
+							<a class="dropdown-item text-dark" href="{{ path('boutique_product_show_by_category',{'id':category.id}) }}">{{category.name}}</a>
 						</li>
 					{% endfor %}
 				</ul>
@@ -127,16 +127,16 @@
 		<!-- <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">+99</span> -->
 	</a>
 	<!-- fin Navbar 
-																		<div class="dropdown" class="navbar">
-																			<button class="dropbtn">
-																				<i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
-																			</button>
-																			<div class="dropdown-content">
-																				<a href="#">Link 1</a>
-																				<a href="#">Link 2</a>
-																				<a href="#">Link 3</a>
-																			</div>
-																		</div>
-																		-->
+																				<div class="dropdown" class="navbar">
+																					<button class="dropbtn">
+																						<i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
+																					</button>
+																					<div class="dropdown-content">
+																						<a href="#">Link 1</a>
+																						<a href="#">Link 2</a>
+																						<a href="#">Link 3</a>
+																					</div>
+																				</div>
+																				-->
 
 </div></nav><!-- fin Navbar -->
