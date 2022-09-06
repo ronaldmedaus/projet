@@ -13,17 +13,19 @@ class HomeController extends AbstractController
     #[Route('/', name: 'home')]
     public function index(CategoryRepository $categoryRepository, ProductRepository $productRepository): Response
     {
-
+        //Je vais chercher dans la bdd les categories
         $categories = $categoryRepository->findAll();
 
+         //Je vais chercher les 8 derniers produits
         $products = $productRepository->findBy(
             [],
             [
                 'id' => 'DESC'
             ],
-            4
+            9
         );
 
+        //Je les envoie dans la vue
         return $this->render('customer/index.html.twig',[
             'categories' => $categories,
             'products' => $products

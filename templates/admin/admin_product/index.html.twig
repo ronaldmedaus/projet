@@ -1,68 +1,65 @@
 {% extends 'admin/base.html.twig' %}
 
 
-{% block title %}Product index{% endblock %}
+{% block title %}Product index
+{% endblock %}
 
 {% block body %}
-    
 
 
+	<div class="container py-5">
+		<div class="row">
+
+			{% include "_messages_flash.html.twig" %}
+
+			<div class="col-12 d-flex align-items-center justify-content-between">
+				<h3>Liste des produits</h3>
+				<div class="navigation">
+					{{ knp_pagination_render(products) }}
+				</div>
+
+				<a class="button" href="{{ path('admin/product_new')}}">Ajouter</a>
+			</div>
 
 
-<div class="container py-5">
-    <div class="row">
+			{% for product in products %}
 
-    {% include "_messages_flash.html.twig" %}
+				<div class="col-sm-12 col-md-6 col-lg-3">
+					<div class="card">
+						<img src="{{ product.ImagePath }}" alt="image_category" class="card-img-top imageCard">
+						<div class="card-body">
+							<h5 class="card-title">{{ product.name | upper }}</h5>
+							<p class="mb-1">{{ product.category.name }}</p>
+							<p class="mb-1">{{ product.style }}</p>
+							<p class="mb-1">{{ product.season }}</p>
+							<p class="mb-1">{{ product.color }}</p>
+							<p class="mb-1">{{ product.quantity }}</p>
+							<p class="mb-1">{{ product.size }}</p>
+							<p class="mb-1">{{ product.price | priceEuro }}</p>
+							<!--<p class="mb-1">{{ product.createdAt ? product.createdAt|date('Y-m-d H:i:s') : '' }}</p>-->
+						</div>
 
-        <div class="col-12 d-flex align-items-center justify-content-between">
-            <h3>Liste des produits</h3>
-            <div class="navigation">
-    {{ knp_pagination_render(products) }}
-</div>
 
-            <a class="button" href="{{ path('admin/product_new')}}">Ajouter</a>
-        </div>
-        
-    
+					</div>
+					<tbody>
+						<tr>
+							<td>
+								<!--<a href="{{ path('admin/product_show', {'id': product.id}) }}">show</a>-->
+								<a class="btn btn-secondary w-100 btn-sm" href="{{ path('admin/product_edit', {'id': product.id}) }}">
+									<span class="btn-label btn-sm">
+										<i class="fad fa-tools"></i>
+									</span>Gerer</a>
+							</td>
+						</tr>
+					{% else %}
+						<tr>
+							<td colspan="11">no records found</td>
+						</tr>
+					</tbody>
+				{% endfor %}
 
 
-
-
-        {% for product in products %}
-
-        <div class="col-sm-12 col-md-6 col-lg-3">
-            <div class="card">
-                <img src="{{ product.ImagePath }}" alt="image_category" class="card-img-top imageCard">
-                <div class="card-body">
-                <h5 class="card-title">{{ product.name | upper }}</h5>
-                <p class="mb-1">{{ product.category.name }}</p>
-                <p class="mb-1">{{ product.style }}</p>
-                <p class="mb-1">{{ product.season }}</p>
-                <p class="mb-1">{{ product.color }}</p>
-                <p class="mb-1">{{ product.quantity }}</p>
-                <p class="mb-1">{{ product.size }}</p>
-                <p class="mb-1">{{ product.price | priceEuro }}</p>
-                <!--<p class="mb-1">{{ product.createdAt ? product.createdAt|date('Y-m-d H:i:s') : '' }}</p>-->
-                </div>
-            
-        
-        </div>
-        <tbody>
-            <tr>
-                <td>
-                    <!--<a href="{{ path('admin/product_show', {'id': product.id}) }}">show</a>-->
-                    <a class="btn btn-secondary w-100 btn-sm" href="{{ path('admin/product_edit', {'id': product.id}) }}"><span class="btn-label btn-sm"><i class="fad fa-tools"></i></span>Gerer</a>
-                   </div> 
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="11">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    
-
-    <!--<a href="{{ path('admin/product_new') }}">Create new</a>-->
-    </div>
-{% endblock %}
+			</div>
+			<!--<a href="{{ path('admin/product_new') }}">Create new</a>-->
+		</div>
+	{% endblock %}

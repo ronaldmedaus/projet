@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>E-commerce - Chaussure de sport</title>
+		<title>{% block title %}Mia-store
+		{% endblock %}</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="{% block description %}{% endblock %}">
 
-		<link rel="apple-touch-icon" href="{{ asset('assets/img/apple-icon.png') }}">
-		<link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/img/favicon.ico') }}">
-
+		<link rel="apple-touch-icon" href="{{ asset('assets/img/20220504_082014.jpg') }}">
 		<link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
 		<link rel="stylesheet" href="{{ asset('assets/css/templatemo.css') }}">
 
@@ -26,9 +25,10 @@
 
 		<!-- Bootstrap 5 CSS -->
 		<!-- <link
-						rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous"> -->
+												rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous"> -->
 		<!-- Font Awesome CSS -->
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"> <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.min.css') }}">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"> 
+		<link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.min.css') }}">
 		<link rel="stylesheet" href="{{ asset('assets/css/owl.theme.default.min.css') }}">
 		<link rel="stylesheet" href="{{ asset('assets/css/animate.css') }}">
 		<link rel="stylesheet" href="{{ asset('assets/css/style2.css') }}">
@@ -133,8 +133,7 @@ tarteaucitron.user.gajsMore = function () { /* add here your optionnal _ga.push(
 
 	<body>
 		{% include "customer/shared/_navbar.html.twig" %}
-		<div class="corpsPage"> {% block body %}
-		{% endblock %}
+		<div class="corpsPage"> {% block body %}{% endblock %}
 			</div>
 
 			{% include "customer/shared/_footer.html.twig" %}
