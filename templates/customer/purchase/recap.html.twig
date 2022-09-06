@@ -2,93 +2,113 @@
 
 {% block body %}
 
-    <section>
-        <div class="container" style="margin-top: 100px; margin-bottom: 100px">
-            <div class="row">
-                <div class="col-12 mb-3">
-                    <h3 class="text-center">Valider votre commande</h3>
-                </div>
-                {% include "_messages_flash.html.twig" %}
-                <div class="col-sm-12 col-md-6">
-                <div class="card">
-                            <div class="card-header">
-                                <h5 class="card-title">Récapitulatif des produits</h5>
-                            </div>
-                            <div class="card-body">
-                                <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">Produit</th>
-                                <th scope="col">Prix Unitaire</th>
-                                <th scope="col">Quantité</th>
-                                <th scope="col">Total</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for item in detailProducts %}
-                                <tr>
-                                    <th>
-                                        <div class="d-flex align-items-center">
-                                            <img src="{{ item.product.imagePath }}" alt="" style="height:80px;object-fit:contain;">
-                                            <div class="d-flex flex-column align-items-center">
-                                                <p>{{ item.product.name }}</p>
-                                            </div>
-                                    
-                                        </div>
-                                    </th>
-                                    <td>{{ item.product.price | priceEuro }}</td>
-                                    <td>
-                                        <button class="btn btn-light"> {{ item.qty }}</button>
-                                    </td>
-                                    <td>{{ item.total | priceEuro }}</td>
-                                </tr>
-                            {% endfor %}
-                            <tr>
-                                <th colspan="2">
-                                </th>
-                                <th>
-                                    <p><strong>Sous total</strong></p>
-                                </th>
-                                <th>
-                                    <p><strong>{{ totalPrixPanier | priceEuro}}</strong></p>
-                                </th>
-                            </tr>
-                            
-                        
-                        </tbody>
-                    </table>
-                            </div>
-                        </div>
-                    
-                </div>
-				
-                <div class="col-sm-12 col-md-6">
-                
-                        <div class="card">
+	<section>
+		<div class="container" style="margin-top: 100px; margin-bottom: 100px">
+			<div class="row">
+				<section class="step-wizard pb-5">
+					<ul class="step-wizard-list">
+						<li class="step-wizard-item">
+							<span class="progress-count">1</span>
+							<span class="progress-label">Valider le panier</span>
+						</li>
+						<li class="step-wizard-item current-item">
+							<span class="progress-count">2</span>
+							<span class="progress-label">Finaliser la commande</span>
+						</li>
+						<li class="step-wizard-item">
+							<span class="progress-count">3</span>
+							<span class="progress-label">Success</span>
+						</li>
+					</ul>
+				</section>
+				<div class="col-12 mb-3">
+					<h3 class="text-center">Valider votre commande</h3>
+				</div>
+				{% include "_messages_flash.html.twig" %}
+				<div class="col-sm-12 col-md-6">
+					<div class="card">
+						<div class="card-header">
+							<h5 class="card-title">Récapitulatif des produits</h5>
+						</div>
+						<div class="card-body">
+							<table class="table">
+								<thead>
+									<tr>
+										<th scope="col">Produit</th>
+										<th scope="col">Prix Unitaire</th>
+										<th scope="col">Quantité</th>
+										<th scope="col">Total</th>
+									</tr>
+								</thead>
+								<tbody>
+									{% for item in detailProducts %}
+										<tr>
+											<th>
+												<div class="d-flex align-items-center">
+													<img src="{{ item.product.imagePath }}" alt="" style="height:80px;object-fit:contain;">
+													<div class="d-flex flex-column align-items-center">
+														<p>{{ item.product.name }}</p>
+													</div>
+
+												</div>
+											</th>
+											<td>{{ item.product.price | priceEuro }}</td>
+											<td>
+												<button class="btn btn-light">
+													{{ item.qty }}</button>
+											</td>
+											<td>{{ item.total | priceEuro }}</td>
+										</tr>
+									{% endfor %}
+									<tr>
+										<th colspan="2"></th>
+										<th>
+											<p>
+												<strong>Sous total</strong>
+											</p>
+										</th>
+										<th>
+											<p>
+												<strong>{{ totalPrixPanier | priceEuro}}</strong>
+											</p>
+										</th>
+									</tr>
+
+
+								</tbody>
+							</table>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="col-sm-12 col-md-6">
+
+					<div class="card">
 						{% if app.user %}
-                            <div class="card-header">
-                                <h5 class="card-title">Ajouter votre adresse de livraison</h5>
-                            </div>
-							
-                            <div class="card-body">
-                                {{ form_start(form) }}
-                                {{ form_widget(form) }}
-                                <button class="btn btn-success mt-3 w-100" type="submit">Finaliser ma commande</button>
-                                {{ form_end(form) }}
-                            </div>
-							
-                        </div>
-                    {% else %}
-							<div class="card-body">
-								<p>Vous devez être connecté pour valider la votre commande.</p>
-								<a href="{{ path('app_login') }}" class="btn btn-secondary">Connectez vous</a>
+							<div class="card-header">
+								<h5 class="card-title">Ajouter votre adresse de livraison</h5>
 							</div>
-						
-				{% endif %}
-                </div>
-				
-            </div>
-        </div>
-    </section>
+
+							<div class="card-body">
+								{{ form_start(form) }}
+								{{ form_widget(form) }}
+								<button class="btn btn-success mt-3 w-100" type="submit">Finaliser ma commande</button>
+								{{ form_end(form) }}
+							</div>
+
+						</div>
+					{% else %}
+						<div class="card-body">
+							<p>Vous devez être connecté pour valider la votre commande.</p>
+							<a href="{{ path('app_login') }}" class="btn btn-secondary">Connectez vous</a>
+						</div>
+
+					{% endif %}
+				</div>
+
+			</div>
+		</div>
+	</section>
 
 {% endblock %}
